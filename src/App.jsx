@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import Header from '@/components/Header';
@@ -21,9 +20,9 @@ function App() {
         <meta name="description" content="Segurança e prosperidade em seus investimentos com Theo Lima, sócio da Big Invest XP. Soluções personalizadas para empresas e investidores individuais." />
         <meta property="og:title" content="Theo Lima - Assessoria de investidores" />
         <meta property="og:description" content="Segurança e prosperidade em seus investimentos com Theo Lima, sócio da Big Invest XP. Soluções personalizadas para empresas e investidores individuais." />
-        <meta property="og:image" content="https://horizons-cdn.hostinger.com/12080f71-3205-428f-b607-bf02d18356a6/eefc4bac6d374d63e4ea2352a3244077.png" />
+        <meta property="og:image" content="https://horizons-cdn.hostinger.com/12080f71-3205-428f-b607-bf02d18356a6/45dde2636111f13bce465e7473b99462.png" />
         <meta property="og:type" content="website" />
-        <link rel="icon" type="image/png" href="https://horizons-cdn.hostinger.com/12080f71-3205-428f-b607-bf02d18356a6/eefc4bac6d374d63e4ea2352a3244077.png" />
+        <link rel="icon" type="image/png" href="https://horizons-cdn.hostinger.com/12080f71-3205-428f-b607-bf02d18356a6/45dde2636111f13bce465e7473b99462.png" />
 
       </Helmet>
       
