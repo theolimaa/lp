@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #E8EBED;
+  color: #1B2637;
+  overflow-x: hidden;
+}
+
+@layer utilities {
+  .text-oxford-blue {
+    color: #1B2637;
+  }
+  
+  .text-antiflash-white {
+    color: #E8EBED;
+  }
+  
+  .text-dark-goldenrod {
+    color: #B58E40;
+  }
+  
+  .bg-oxford-blue {
+    background-color: #1B2637;
+  }
+  
+  .bg-antiflash-white {
+    background-color: #E8EBED;
+  }
+  
+  .bg-dark-goldenrod {
+    background-color: #B58E40;
+  }
+  
+  .border-dark-goldenrod {
+    border-color: #B58E40;
+  }
+}
+
+.gradient-bg {
+  background: radial-gradient(ellipse at top, rgba(27, 38, 55, 0.05) 0%, transparent 50%),
+              radial-gradient(ellipse at bottom, rgba(181, 142, 64, 0.08) 0%, transparent 50%);
+}
+
+.pillar-segment {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.pillar-segment:hover {
+  transform: scale(1.1);
+  filter: brightness(1.3);
+}
+
+.pillar-segment.active {
+  transform: scale(1.15);
+  filter: brightness(1.5);
+}
