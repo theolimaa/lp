@@ -48,7 +48,7 @@ const AboutTheoSection = () => {
             className="flex flex-col items-center text-center"
           >
             <img 
-              src="https://horizons-cdn.hostinger.com/12080f71-3205-428f-b607-bf02d18356a6/bf0ba71c07d64e46e18029958d3ac8fe.png" 
+              src="https://horizons-cdn.hostinger.com/12080f71-3205-428f-b607-bf02d18356a6/b4b5eb52971d26a53c4e1e82f56922ec.png" 
               alt="Theo Lima com prêmio de Assessor Destaque 2024"
               className="rounded-2xl shadow-xl w-full max-w-sm"
             />
