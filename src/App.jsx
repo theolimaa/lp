@@ -19,7 +19,7 @@ function App() {
       <Helmet>
         <title>Theo Lima - Assessor de Investimentos | Big Invest XP</title>
         <meta name="description" content="Segurança e prosperidade em seus investimentos com Theo Lima, sócio da Big Invest XP. Soluções personalizadas para empresas e investidores individuais." />
-        <meta property="og:title" content="Theo Lima - Assessor de Investimentos | Big Invest XP" />
+        <meta property="og:title" content="Theo Lima - Assessoria de investidores" />
         <meta property="og:description" content="Segurança e prosperidade em seus investimentos com Theo Lima, sócio da Big Invest XP. Soluções personalizadas para empresas e investidores individuais." />
         <meta property="og:image" content="https://horizons-cdn.hostinger.com/12080f71-3205-428f-b607-bf02d18356a6/eefc4bac6d374d63e4ea2352a3244077.png" />
         <meta property="og:type" content="website" />

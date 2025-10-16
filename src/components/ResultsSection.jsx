@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -49,7 +48,7 @@ const ResultsSection = () => {
           className="text-center"
         >
           <a href="https://wa.me/message/UZZHBP7KOC5AJ1" target="_blank" rel="noopener noreferrer">
-            <Button className="bg-dark-goldenrod hover:bg-dark-goldenrod/90 text-antiflash-white font-semibold px-8 py-6 text-lg transition-all hover:scale-105 mb-6">
+            <Button className="bg-dark-goldenrod hover:bg-dark-goldenrod/90 text-antiflash-white font-semibold px-4 py-3 text-sm md:px-8 md:py-6 md:text-lg transition-all hover:scale-105 mb-6">
               Monte agora sua estratégia
             </Button>
           </a>
