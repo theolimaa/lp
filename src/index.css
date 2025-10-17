@@ -39,8 +39,11 @@ body {
   .border-dark-goldenrod {
     border-color: #B58E40;
   }
+  
+  .bg-custom-header-blue {
+    background-color: #1e3a8a;
+  }
 }
-
 .gradient-bg {
   background: radial-gradient(ellipse at top, rgba(27, 38, 55, 0.05) 0%, transparent 50%),
               radial-gradient(ellipse at bottom, rgba(181, 142, 64, 0.08) 0%, transparent 50%);
