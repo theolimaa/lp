@@ -28,11 +28,12 @@ const Header = () => {
   ];
 
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
+  <motion.header
+    initial={{ y: -100 }}
+    animate={{ y: 0 }}
     className="relative w-full z-50 bg-oxford-blue/80 backdrop-blur-md shadow-lg"
-      <div className="container mx-auto px-4 py-3">
+  >
+    <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4 flex-shrink-0">
             <button onClick={() => scrollToSection('hero')} className="transition-transform hover:scale-105">
