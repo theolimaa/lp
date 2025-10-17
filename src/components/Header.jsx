@@ -31,7 +31,7 @@ const Header = () => {
   <motion.header
     initial={{ y: -100 }}
     animate={{ y: 0 }}
-    className="relative w-full z-50 bg-oxford-blue backdrop-blur-md shadow-lg"
+    className="relative w-full z-50 bg-oxford-blue/95 backdrop-blur-md shadow-lg"
   >
     <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
