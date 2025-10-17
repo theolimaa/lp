@@ -15,12 +15,20 @@ const Header = () => {
   }, []);
 
   const scrollToSection = (id) => {
+  // Primeiro fecha o menu
+  setMobileMenuOpen(false);
+  
+  // Depois faz o scroll com um pequeno delay
+  setTimeout(() => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
     }
-    setMobileMenuOpen(false);
-  };
+  }, 300);
+};
   
   const navItems = [
     { label: 'Quem sou eu', id: 'about-theo' },
