@@ -85,7 +85,7 @@ const CdiEasySection = () => {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <a href="https://cdieasy.github.io/lp/" target="_blank" rel="noopener noreferrer">
+            <a href="https://theolimaa.github.io/cdieasy/" target="_blank" rel="noopener noreferrer">
               <Button className="bg-dark-goldenrod hover:bg-dark-goldenrod/90 text-antiflash-white font-semibold px-8 py-6 text-lg transition-all hover:scale-105">
                 Conheça o CDIEA$Y
               </Button>
