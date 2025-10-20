@@ -84,7 +84,7 @@ const Header = () => {
               Contato
             </a>
             <a
-              href="https://cdieasy.github.io/lp/"
+              href="https://theolimaa.github.io/cdieasy/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-antiflash-white hover:text-dark-goldenrod transition-colors"
@@ -103,7 +103,7 @@ const Header = () => {
 
           <div className="md:hidden flex items-center gap-4">
              <a
-              href="https://cdieasy.github.io/lp/"
+              href="https://theolimaa.github.io/cdieasy/"
               target="_blank"
               rel="noopener noreferrer"
             >
