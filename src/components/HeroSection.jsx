@@ -1,16 +1,13 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { MessageCircle } from 'lucide-react';
-import { useModal } from '@/context/ModalContext';
-import AdvisoryForm from '@/components/AdvisoryForm';
 
 const HeroSection = () => {
-  const { openModal } = useModal();
-
+  // Configuração do WhatsApp com Mensagem de Pré-Qualificação (SPIN)
   const handleWhatsApp = () => {
-    window.open('https://api.whatsapp.com/message/UZZHBP7KOC5AJ1?autoload=1&app_absent=0', '_blank');
+    const message = encodeURIComponent("Olá, Theo. Gostaria de agendar um diagnóstico de eficiência patrimonial.");
+    window.open(`https://api.whatsapp.com/message/UZZHBP7KOC5AJ1?text=${message}`, '_blank');
   };
 
   return (
@@ -18,7 +15,6 @@ const HeroSection = () => {
       {/* Background with spotlight effect */}
       <div className="absolute inset-0 bg-black">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/20 rounded-full blur-[150px]" />
-        {/* Gradient overlay for better text contrast */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/80" />
       </div>
 
@@ -56,20 +52,13 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.8 }}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
-              <Button 
-                onClick={openModal} 
-                className="bg-[#D4AF37] hover:bg-[#C4A030] text-black font-bold px-8 py-6 text-lg rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(212,175,55,0.5)]"
-              >
-                Quero ser assessorado
-              </Button>
-              
+              {/* Botão Principal - Agora focado em Conversão Direta */}
               <Button 
                 onClick={handleWhatsApp} 
-                variant="outline" 
-                className="bg-transparent border-2 border-[#00E5FF] text-[#00E5FF] hover:bg-[#00E5FF]/10 font-semibold px-8 py-6 text-lg rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(0,229,255,0.4)]"
+                className="bg-[#D4AF37] hover:bg-[#C4A030] text-black font-bold px-8 py-6 text-lg rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(212,175,55,0.5)]"
               >
                 <MessageCircle className="mr-2 h-5 w-5" />
-                Fale no WhatsApp
+                Agendar Diagnóstico Patrimonial
               </Button>
             </motion.div>
           </motion.div>
@@ -82,11 +71,7 @@ const HeroSection = () => {
             className="relative flex flex-col items-center lg:block"
           >
             <div className="relative w-full max-w-[500px] lg:max-w-none mx-auto">
-              
-              {/* Blue spotlight effect */}
               <div className="absolute -inset-4 bg-blue-500/30 rounded-2xl blur-3xl" />
-              
-              {/* Image Container */}
               <div className="relative w-full">
                 <div
                   className="relative rounded-2xl overflow-hidden shadow-2xl"
@@ -98,7 +83,7 @@ const HeroSection = () => {
                 >
                   <img
                     src="https://horizons-cdn.hostinger.com/c25d6b49-33f2-461d-8ced-feb874cc0e61/928c124bad23db48363483874e4efd05.png"
-                    alt="Man in black suit in modern corridor with XP logo"
+                    alt="Theo Lima - Big Invest XP"
                     className="w-full h-[400px] md:h-[500px] lg:h-[600px] object-cover object-[center_30%]"
                     style={{
                       maskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)',
@@ -113,9 +98,6 @@ const HeroSection = () => {
 
         </div>
       </div>
-      
-      {/* Modal Advisory Form */}
-      <AdvisoryForm />
     </section>
   );
 };
