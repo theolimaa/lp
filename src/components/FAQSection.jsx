@@ -15,7 +15,7 @@ const FAQSection = () => {
   const faqs = [
     {
       question: 'Qual o retorno mensal?',
-      answer: 'Isso varia do perfil de riscos, mas buscamos sempre performar acima do CDI, que hoje está em 12,15% ao ano.'
+      answer: 'Entregamos uma taxa de retorno, acima da INFLAÇÃO, pré acordada com cada cliente para cada caso, perfil e história.'
     },
     {
       question: 'Por onde são realizados os investimentos?',
