@@ -4,108 +4,73 @@ import { Button } from '@/components/ui/button';
 import { MessageCircle } from 'lucide-react';
 
 const HeroSection = () => {
-  // Configuração do WhatsApp com Mensagem Estratégica
   const handleWhatsApp = () => {
     const message = encodeURIComponent("Olá, Theo. Gostaria de agendar um diagnóstico de eficiência patrimonial.");
-    // Seu link direto do WhatsApp Business
     window.open(`https://api.whatsapp.com/message/UZZHBP7KOC5AJ1?text=${message}`, '_blank');
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 py-16 lg:py-24 overflow-hidden">
-      {/* Background com efeito de spotlight - Estética High Ticket */}
-      <div className="absolute inset-0 bg-black">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/20 rounded-full blur-[150px]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/80" />
+    <section className="relative min-h-screen flex items-center justify-center px-6 py-20 lg:py-32 overflow-hidden bg-black">
+      {/* Background - Ajustado para não ofuscar o texto */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/40 to-black" />
       </div>
 
       <div className="relative z-10 container mx-auto max-w-7xl">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           
-          {/* Lado Esquerdo - Copy e CTA */}
+          {/* Lado Esquerdo - Texto e CTA com mais espaçamento */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-8 text-center lg:text-left"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col space-y-10 text-center lg:text-left"
           >
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
-            >
-              A assessoria que seu futuro precisa
-            </motion.h1>
-            
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto lg:mx-0"
-            >
-              Entenda como um planejamento para você e/ou sua empresa vai alavancar seus resultados no mercado financeiro, com quem assessora + R$ 50 milhões de reais e é destaque em assessoria transparente.
-            </motion.p>
+            <div className="space-y-6">
+              <h1 className="text-4xl md:text-6xl font-bold text-white leading-[1.1] tracking-tight">
+                A assessoria que seu <span className="text-[#D4AF37]">futuro precisa</span>
+              </h1>
+              
+              <p className="text-lg md:text-xl text-gray-400 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                Entenda como um planejamento exclusivo vai alavancar seus resultados, com quem assessora <span className="text-white font-semibold">+ R$ 50 milhões</span> e é destaque em transparência.
+              </p>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="flex justify-center lg:justify-start"
-            >
-              {/* Botão com ajuste Mobile-First */}
+            <div className="flex justify-center lg:justify-start">
               <Button 
                 onClick={handleWhatsApp} 
                 className="
-                  w-full sm:w-auto 
+                  w-full sm:w-max 
                   bg-[#D4AF37] hover:bg-[#C4A030] 
-                  text-black font-bold 
-                  px-6 py-8 sm:px-10 sm:py-7 
-                  text-lg sm:text-xl 
+                  text-black font-extrabold 
+                  px-10 py-8 text-lg
                   rounded-xl transition-all duration-300 
                   hover:scale-105 
-                  hover:shadow-[0_0_40px_rgba(212,175,55,0.4)]
-                  flex items-center justify-center
+                  shadow-[0_10px_30px_rgba(212,175,55,0.3)]
+                  flex items-center justify-center gap-3
                 "
               >
-                <MessageCircle className="mr-3 h-6 w-6 flex-shrink-0" />
-                <span className="whitespace-normal sm:whitespace-nowrap leading-tight">
-                  Agendar Diagnóstico Patrimonial
-                </span>
+                <MessageCircle className="h-6 w-6" />
+                AGENDAR DIAGNÓSTICO PATRIMONIAL
               </Button>
-            </motion.div>
+            </div>
           </motion.div>
 
-          {/* Lado Direito - Imagem de Autoridade */}
+          {/* Lado Direito - Imagem com moldura de autoridade */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative flex flex-col items-center lg:block"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="hidden lg:block relative"
           >
-            <div className="relative w-full max-w-[500px] lg:max-w-none mx-auto">
-              <div className="absolute -inset-4 bg-blue-500/30 rounded-2xl blur-3xl" />
-              <div className="relative w-full">
-                <div
-                  className="relative rounded-2xl overflow-hidden shadow-2xl"
-                  style={{
-                    transform: 'rotateY(-5deg) rotateX(2deg)',
-                    transformStyle: 'preserve-3d',
-                    perspective: '1000px'
-                  }}
-                >
-                  <img
-                    src="https://horizons-cdn.hostinger.com/c25d6b49-33f2-461d-8ced-feb874cc0e61/928c124bad23db48363483874e4efd05.png"
-                    alt="Theo Lima - Big Invest XP"
-                    className="w-full h-[400px] md:h-[500px] lg:h-[600px] object-cover object-[center_30%]"
-                    style={{
-                      maskImage: 'linear-gradient(to bottom, black 75%, transparent 100%)',
-                      WebkitMaskImage: 'linear-gradient(to bottom, black 75%, transparent 100%)'
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 via-transparent to-cyan-500/10" />
-                </div>
-              </div>
+            <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+              <img
+                src="https://horizons-cdn.hostinger.com/c25d6b49-33f2-461d-8ced-feb874cc0e61/928c124bad23db48363483874e4efd05.png"
+                alt="Theo Lima"
+                className="w-full h-[650px] object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
             </div>
           </motion.div>
 
