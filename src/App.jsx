@@ -1,17 +1,18 @@
-
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { AuthProvider } from '@/contexts/SupabaseAuthContext';
-import { ModalProvider } from '@/context/ModalContext';
-import { Toaster } from '@/components/ui/toaster';
 
-// Pages
-import HomePage from '@/pages/HomePage';
-import AdminLoginPage from '@/pages/AdminLoginPage';
-import AdminDashboard from '@/pages/AdminDashboard';
+// Providers e UI (Ajustados para caminhos relativos)
+import { AuthProvider } from './contexts/SupabaseAuthContext';
+import { ModalProvider } from './context/ModalContext';
+import { Toaster } from './components/ui/toaster';
 
-// Components
-import ProtectedRoute from '@/components/ProtectedRoute';
+// Pages (Ajustados para caminhos relativos)
+import HomePage from './pages/HomePage';
+import AdminLoginPage from './pages/AdminLoginPage';
+import AdminDashboard from './pages/AdminDashboard';
+
+// Components (Ajustados para caminhos relativos)
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
   return (
