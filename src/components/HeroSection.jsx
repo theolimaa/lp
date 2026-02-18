@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
+// Mudei o @/ para ../ para ele subir uma pasta e achar os componentes
+import { Button } from '../components/ui/button';
 import { MessageCircle } from 'lucide-react';
 
 const HeroSection = () => {
@@ -11,7 +12,6 @@ const HeroSection = () => {
 
   return (
     <section style={{ backgroundColor: '#000000' }} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background simplificado para evitar erros de renderização */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-blue-900/10 blur-[120px]" />
       </div>
@@ -19,7 +19,6 @@ const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-6 py-12">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           
-          {/* Lado Esquerdo - Conteúdo */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -47,7 +46,6 @@ const HeroSection = () => {
             </div>
           </motion.div>
 
-          {/* Lado Direito - Imagem */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
