@@ -46,10 +46,11 @@ const HeroSection = () => {
             </div>
           </motion.div>
 
+          {/* AJUSTE AQUI: Removi o 'hidden' e adicionei margem para o mobile */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="flex-1 hidden lg:block"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex-1 w-full block mt-8 lg:mt-0"
           >
             <div className="relative max-w-md mx-auto rounded-2xl border border-white/10 overflow-hidden shadow-2xl">
               <img
