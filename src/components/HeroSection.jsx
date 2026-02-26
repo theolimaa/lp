@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-// Mudei o @/ para ../ para ele subir uma pasta e achar os componentes
 import { Button } from '../components/ui/button';
 import { MessageCircle } from 'lucide-react';
 
@@ -11,12 +10,13 @@ const HeroSection = () => {
   };
 
   return (
-    <section style={{ backgroundColor: '#000000' }} className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    // MUDANÇA: Troquei 'overflow-hidden' por 'overflow-visible' para não cortar a imagem no mobile
+    <section style={{ backgroundColor: '#000000' }} className="relative min-h-screen flex items-center justify-center overflow-visible py-20 lg:py-0">
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-blue-900/10 blur-[120px]" />
       </div>
 
-      <div className="relative z-10 container mx-auto px-6 py-12">
+      <div className="relative z-10 container mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           
           <motion.div
@@ -46,17 +46,17 @@ const HeroSection = () => {
             </div>
           </motion.div>
 
-          {/* AJUSTE AQUI: Removi o 'hidden' e adicionei margem para o mobile */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="flex-1 w-full block mt-8 lg:mt-0"
+            // MUDANÇA: Garanti que a div ocupe largura total e tenha margem no topo
+            className="flex-1 w-full mt-12 lg:mt-0"
           >
-            <div className="relative max-w-md mx-auto rounded-2xl border border-white/10 overflow-hidden shadow-2xl">
+            <div className="relative max-w-[300px] md:max-w-md mx-auto rounded-2xl border border-white/10 overflow-hidden shadow-2xl">
               <img
                 src="https://horizons-cdn.hostinger.com/c25d6b49-33f2-461d-8ced-feb874cc0e61/928c124bad23db48363483874e4efd05.png"
                 alt="Theo Lima"
-                className="w-full h-auto object-cover"
+                className="w-full h-auto object-cover block"
               />
             </div>
           </motion.div>
