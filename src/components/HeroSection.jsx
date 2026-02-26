@@ -10,8 +10,8 @@ const HeroSection = () => {
   };
 
   return (
-    // MUDANÇA: Troquei 'overflow-hidden' por 'overflow-visible' para não cortar a imagem no mobile
-    <section style={{ backgroundColor: '#000000' }} className="relative min-h-screen flex items-center justify-center overflow-visible py-20 lg:py-0">
+    // AJUSTE: Removido overflow-hidden e adicionado padding extra (py-20) para o celular
+    <section style={{ backgroundColor: '#000000' }} className="relative min-h-screen flex items-center justify-center py-20 lg:py-0">
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-blue-900/10 blur-[120px]" />
       </div>
@@ -46,17 +46,17 @@ const HeroSection = () => {
             </div>
           </motion.div>
 
+          {/* AJUSTE: Removido o 'hidden' e forçado tamanho visível no mobile */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            // MUDANÇA: Garanti que a div ocupe largura total e tenha margem no topo
-            className="flex-1 w-full mt-12 lg:mt-0"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="flex-1 w-full max-w-[320px] lg:max-w-md mx-auto"
           >
-            <div className="relative max-w-[300px] md:max-w-md mx-auto rounded-2xl border border-white/10 overflow-hidden shadow-2xl">
+            <div className="relative rounded-2xl border border-white/10 overflow-hidden shadow-2xl">
               <img
                 src="https://horizons-cdn.hostinger.com/c25d6b49-33f2-461d-8ced-feb874cc0e61/928c124bad23db48363483874e4efd05.png"
                 alt="Theo Lima"
-                className="w-full h-auto object-cover block"
+                className="w-full h-auto object-cover"
               />
             </div>
           </motion.div>
