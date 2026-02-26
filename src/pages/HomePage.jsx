@@ -16,7 +16,7 @@ const HomePage = () => {
     <>
       <Helmet>
         <title>Theo Lima - A assessoria que seu futuro precisa</title>
-        <meta name="description" content="Multiplique seu patrimônio com a segurança da Big Invest. Mais de R$ 1.2 bilhão sob custódia e NPS 92.7." />
+        <meta name="description" content="Planejamento financeiro, patrimonial e sucessório com um especialista XP" />
       </Helmet>
       
       {/* 
