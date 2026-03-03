@@ -13,18 +13,18 @@ const HowItWorks = () => {
   const steps = [{
     id: 1,
     icon: FileSearch,
-    title: "Coleta de informações",
-    description: "A parte que conheço você e sua história! É o momento que vou entender como posso te ajudar, no que você precisa de suporte e seu perfil de investidor!"
+    title: "Coleta de informaÃ§Ãµes",
+    description: "A parte que conheÃ§o vocÃª e sua histÃ³ria! Ã o momento que vou entender como posso te ajudar, no que vocÃª precisa de suporte e seu perfil de investidor!"
   }, {
     id: 2,
     icon: Presentation,
-    title: "Apresentação da estratégia",
-    description: "Apresento o planejamento patrimonial, carteira e estratégia que seguiremos, suas projeções, cenários ideais e fazemos os últimos ajustes."
+    title: "ApresentaÃ§Ã£o da estratÃ©gia",
+    description: "Apresento o planejamento patrimonial, carteira e estratÃ©gia que seguiremos, suas projeÃ§Ãµes, cenÃ¡rios ideais e fazemos os Ãºltimos ajustes."
   }, {
     id: 3,
     icon: LineChart,
     title: "Acompanhamento ativo de resultados",
-    description: "Atualizações, suporte constantes e revisões para sempre seguirmos em direção ao seu objetivo final!"
+    description: "AtualizaÃ§Ãµes, suporte constantes e revisÃµes para sempre seguirmos em direÃ§Ã£o ao seu objetivo final!"
   }];
 
   return (
@@ -42,14 +42,14 @@ const HowItWorks = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 md:gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-3 gap-14 md:gap-8 lg:gap-10">
           {steps.map((step, index) => (
             <motion.div 
               key={step.id} 
               initial={{ opacity: 0, y: 50 }} 
               animate={inView ? { opacity: 1, y: 0 } : {}} 
               transition={{ duration: 0.6, delay: index * 0.2 }} 
-              className="group relative"
+              className="group relative pt-8"
             >
               <div className="relative h-full p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-300 hover:bg-white/10 hover:border-[#00E5FF]/50 hover:shadow-[0_0_30px_rgba(0,229,255,0.15)] flex flex-col">
                 {/* Number Badge */}
