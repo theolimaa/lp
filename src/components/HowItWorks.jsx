@@ -13,18 +13,18 @@ const HowItWorks = () => {
   const steps = [{
     id: 1,
     icon: FileSearch,
-    title: "Coleta de informaÃ§Ãµes",
-    description: "A parte que conheÃ§o vocÃª e sua histÃ³ria! Ã o momento que vou entender como posso te ajudar, no que vocÃª precisa de suporte e seu perfil de investidor!"
+    title: "Coleta de informações",
+    description: "A parte que conheço você e sua história! Até o momento que vou entender como posso te ajudar, no que você precisa de suporte e seu perfil de investidor!"
   }, {
     id: 2,
     icon: Presentation,
-    title: "ApresentaÃ§Ã£o da estratÃ©gia",
-    description: "Apresento o planejamento patrimonial, carteira e estratÃ©gia que seguiremos, suas projeÃ§Ãµes, cenÃ¡rios ideais e fazemos os Ãºltimos ajustes."
+    title: "Apresentação da estratégia",
+    description: "Apresento o planejamento patrimonial, carteira e estratégia que seguiremos, suas projeções, cenários ideais e fazemos os últimos ajustes."
   }, {
     id: 3,
     icon: LineChart,
     title: "Acompanhamento ativo de resultados",
-    description: "AtualizaÃ§Ãµes, suporte constantes e revisÃµes para sempre seguirmos em direÃ§Ã£o ao seu objetivo final!"
+    description: "Atualizações, suporte constantes e revisões para sempre seguirmos em direção ao seu objetivo final!"
   }];
 
   return (
