@@ -11,7 +11,7 @@ const Header = () => {
 
   const handleLogout = async () => {
     await logout();
-    navigate('/login');
+    navigate('/admin-login');
   };
 
   return (
@@ -31,7 +31,7 @@ const Header = () => {
                 Admin: <span className="text-white">{currentUser.email}</span>
               </span>
 
-              <Link to="/admin">
+              <Link to="/admin-dashboard">
                 <Button variant="ghost" size="sm" className="text-gray-300 hover:text-[#00E5FF] hover:bg-white/5">
                   <LayoutDashboard className="mr-2 h-4 w-4" />
                   <span className="hidden sm:inline">Dashboard</span>
