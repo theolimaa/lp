@@ -9,7 +9,7 @@ import ConhecaBigInvest from '@/components/ConhecaBigInvest';
 import PerformanceSection from '@/components/PerformanceSection';
 import PillarSection from '@/components/PillarSection';
 import HowItWorks from '@/components/HowItWorks';
-import TestimonialsSection from '@/components/TestimonialsSection';
+
 import FAQSection from '@/components/FAQSection';
 import CallToAction from '@/components/CallToAction';
 import Footer from '@/components/Footer';
@@ -48,10 +48,7 @@ const HomePage = () => {
         {/* 8. Processo — como funciona na prática */}
         <HowItWorks />
 
-        {/* 9. Depoimentos */}
-        <TestimonialsSection />
-
-        {/* 10. Dúvidas frequentes */}
+        {/* 9. Dúvidas frequentes */}
         <FAQSection />
 
         {/* 11. CTA final forte antes do rodapé */}
