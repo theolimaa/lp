@@ -61,10 +61,6 @@ const HeroSection = () => {
               </Button>
             </div>
 
-            {/* Social proof micro-line */}
-            <p className="text-gray-500 text-sm">
-              +2.500 clientes · NPS 93,7 · Plataforma XP Investimentos
-            </p>
           </motion.div>
 
           {/* Foto */}
