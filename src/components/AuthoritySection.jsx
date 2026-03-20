@@ -42,7 +42,7 @@ const AuthoritySection = () => {
       icon: TrendingUp,
       value: 50,
       suffix: 'M+',
-      label: 'em assessoria sob gestão',
+      label: 'sob assessoria',
       prefix: 'R$ ',
       decimals: 0
     },
