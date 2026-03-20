@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { TrendingUp, Users, Award } from 'lucide-react';
+import { TrendingUp, Award, Trophy } from 'lucide-react';
 
 const Counter = ({ target, suffix = '', inView, decimals = 0 }) => {
   const [count, setCount] = useState(0);
@@ -40,27 +40,27 @@ const AuthoritySection = () => {
   const metrics = [
     {
       icon: TrendingUp,
-      value: 1.2,
-      suffix: ' Bilhão',
-      label: 'sob custódia',
+      value: 50,
+      suffix: 'M+',
+      label: 'em assessoria sob gestão',
       prefix: 'R$ ',
-      decimals: 1
-    },
-    {
-      icon: Users,
-      value: 2500,
-      suffix: '+',
-      label: 'clientes assessorados',
-      prefix: '',
       decimals: 0
     },
     {
       icon: Award,
-      value: 93.7,
+      value: 10,
       suffix: '',
-      label: 'NPS — Excelência em atendimento',
+      label: 'NPS — satisfação máxima dos clientes',
       prefix: '',
-      decimals: 1
+      decimals: 0
+    },
+    {
+      icon: Trophy,
+      value: 2,
+      suffix: 'x',
+      label: 'Assessor Destaque — atendimento transparente e qualidade comprovada',
+      prefix: '',
+      decimals: 0
     }
   ];
 
