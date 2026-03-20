@@ -14,17 +14,17 @@ const ForWhomSection = () => {
 
   const forYou = [
     'Você tem R$ 300 mil ou mais para investir',
-    'Quer mais do que a poupança ou o Tesouro Direto',
-    'É empresário, médico, diretor ou profissional liberal',
-    'Busca planejamento patrimonial e sucessório',
+    'Quer ser atendido com confiança e de forma transparente',
+    'Busca planejamento patrimonial e/ou sucessório',
     'Quer pagar menos imposto de forma legal',
     'Tem investimentos no exterior ou pensa em ter',
+    'Precisa de planejamento de aposentadoria',
+    'Tem rotina corrida e não consegue acompanhar o mercado',
   ];
 
   const notForYou = [
-    'Busca dicas de ações para operar sozinho',
-    'Não tem clareza sobre seus objetivos financeiros',
-    'Quer retornos milagrosos sem risco',
+    'Busca retorno milagroso',
+    'Não se preocupa com o futuro e liberdade financeira',
   ];
 
   return (
@@ -40,14 +40,12 @@ const ForWhomSection = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-14"
         >
-          <p className="text-[#D4AF37] uppercase tracking-widest text-sm font-semibold mb-4">
-            Qualificação
-          </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
             Essa assessoria é para você?
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Trabalho com um perfil específico de investidor. Veja se faz sentido para o seu momento.
+          <p className="text-gray-400 text-lg max-w-xl mx-auto leading-relaxed">
+            Trabalho com um perfil específico de investidor.{' '}
+            Veja se faz sentido para o seu momento.
           </p>
         </motion.div>
 
