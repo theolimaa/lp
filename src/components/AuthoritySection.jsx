@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { TrendingUp, Users, Award } from 'lucide-react';
 
-const Counter = ({ target, suffix = '', inView }) => {
+const Counter = ({ target, suffix = '', inView, decimals = 0 }) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -19,18 +19,18 @@ const Counter = ({ target, suffix = '', inView }) => {
         setCount(target);
         clearInterval(timer);
       } else {
-        setCount(Math.floor(current));
+        setCount(current);
       }
     }, duration / steps);
 
     return () => clearInterval(timer);
   }, [target, inView]);
 
-  return (
-    <span>
-      {count.toLocaleString('pt-BR')}{suffix}
-    </span>
-  );
+  const display = decimals > 0
+    ? count.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })
+    : Math.floor(count).toLocaleString('pt-BR');
+
+  return <span>{display}{suffix}</span>;
 };
 
 const AuthoritySection = () => {
@@ -43,26 +43,29 @@ const AuthoritySection = () => {
       value: 1.2,
       suffix: ' Bilhão',
       label: 'sob custódia',
-      prefix: 'R$ '
+      prefix: 'R$ ',
+      decimals: 1
     },
     {
       icon: Users,
       value: 2500,
-      suffix: '',
-      label: 'clientes',
-      prefix: ''
+      suffix: '+',
+      label: 'clientes assessorados',
+      prefix: '',
+      decimals: 0
     },
     {
       icon: Award,
-      value: 92.7,
+      value: 93.7,
       suffix: '',
-      label: 'NPS (Excelência)',
-      prefix: ''
+      label: 'NPS — Excelência em atendimento',
+      prefix: '',
+      decimals: 1
     }
   ];
 
   return (
-    <section ref={ref} className="relative py-20 px-4 bg-gradient-to-b from-black to-[#050A14]">
+    <section ref={ref} className="relative py-16 px-4 bg-gradient-to-b from-black to-[#050A14] border-t border-white/5">
       <div className="container mx-auto max-w-6xl">
         <div className="grid md:grid-cols-3 gap-8 md:gap-12">
           {metrics.map((metric, index) => (
@@ -82,7 +85,7 @@ const AuthoritySection = () => {
               <div className="space-y-2">
                 <div className="text-4xl md:text-5xl font-bold text-white">
                   {metric.prefix}
-                  <Counter target={metric.value} suffix={metric.suffix} inView={inView} />
+                  <Counter target={metric.value} suffix={metric.suffix} inView={inView} decimals={metric.decimals} />
                 </div>
                 <p className="text-gray-400 text-lg">{metric.label}</p>
               </div>
