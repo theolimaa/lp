@@ -58,7 +58,7 @@ const AuthoritySection = () => {
       icon: Trophy,
       value: 2,
       suffix: 'x',
-      label: 'Assessor Destaque — atendimento transparente e qualidade comprovada',
+      label: 'Assessor Destaque 2024 & 2025 — atendimento transparente e qualidade comprovada',
       prefix: '',
       decimals: 0
     }
