@@ -24,7 +24,7 @@ const HowItWorks = () => {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section ref={ref} style={{ backgroundColor: 'var(--bg-2)', borderTop: '1px solid var(--border-subtle)' }} className="py-20 lg:py-28 px-6">
+    <section ref={ref} style={{ background: 'linear-gradient(to bottom, #0C0B09 0%, #111009 120px)' }} className="py-20 lg:py-28 px-6">
       <div className="container mx-auto max-w-6xl">
 
         {/* Header */}
