@@ -16,7 +16,7 @@ const PillarSection = () => {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section ref={ref} style={{ backgroundColor: 'var(--bg)' }} className="py-20 lg:py-28 px-6">
+    <section ref={ref} style={{ background: 'linear-gradient(to bottom, #111009 0%, #0C0B09 120px)' }} className="py-20 lg:py-28 px-6">
       <div className="container mx-auto max-w-6xl">
 
         {/* Header */}
