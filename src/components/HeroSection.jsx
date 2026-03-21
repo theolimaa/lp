@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Button } from '../components/ui/button';
 import { MessageCircle } from 'lucide-react';
 
 const HeroSection = () => {
@@ -10,79 +9,83 @@ const HeroSection = () => {
   };
 
   return (
-    <section style={{ backgroundColor: '#000000' }} className="relative min-h-screen flex items-center justify-center pt-10 pb-16 lg:py-0">
-      {/* Background glow */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#D4AF37]/8 blur-[140px] rounded-full" />
+    <section className="relative min-h-screen flex items-end lg:items-center overflow-hidden" style={{ backgroundColor: 'var(--bg)' }}>
+
+      {/* Background photo — full bleed on mobile, right half on desktop */}
+      <div className="absolute inset-0 lg:left-[46%]">
+        <img
+          src="https://horizons-cdn.hostinger.com/c25d6b49-33f2-461d-8ced-feb874cc0e61/928c124bad23db48363483874e4efd05.png"
+          alt="Theo Lima"
+          className="w-full h-full object-cover object-top"
+        />
+        {/* Gradient: stronger on mobile (covers bottom), subtle on desktop (left edge only) */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0C0B09] via-[#0C0B09]/60 to-[#0C0B09]/10 lg:bg-gradient-to-r lg:from-[#0C0B09] lg:via-[#0C0B09]/40 lg:to-transparent" />
       </div>
 
-      <div className="relative z-10 container mx-auto px-5 sm:px-8">
-        {/* Mobile: foto no topo, texto embaixo. Desktop: lado a lado */}
-        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-10 lg:gap-16">
+      {/* Content */}
+      <div className="relative z-10 w-full">
+        <div className="container mx-auto px-6 sm:px-10 lg:px-16 max-w-7xl">
+          <div className="lg:max-w-[52%] pb-16 pt-40 lg:py-32">
 
-          {/* Texto */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="flex-1 text-center lg:text-left space-y-6"
-          >
-            {/* Badge */}
+            {/* Eyebrow */}
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.15 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#D4AF37] text-sm font-semibold"
+              transition={{ duration: 0.6 }}
+              className="flex items-center gap-3 mb-7"
             >
-              <span className="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse" />
-              Assessor Destaque 2024 e 2025 · Big Invest | XP
+              <span className="block w-8 h-px" style={{ backgroundColor: 'var(--gold)' }} />
+              <span className="text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: 'var(--gold)' }}>
+                Assessor Destaque 2024 · 2025 · Big Invest | XP
+              </span>
             </motion.div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight">
-              A assessoria que seu{' '}
-              <span style={{ color: '#D4AF37' }}>futuro precisa</span>
-            </h1>
+            {/* Headline */}
+            <motion.h1
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.05] mb-7"
+              style={{ color: 'var(--cream)', fontFamily: "'Playfair Display', serif" }}
+            >
+              A assessoria que<br />
+              o seu <em style={{ color: 'var(--gold)', fontStyle: 'italic' }}>futuro</em><br />
+              precisa.
+            </motion.h1>
 
-            <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-              Planejamento financeiro, patrimonial e sucessório personalizado.
-              Assessoria com quem gere{' '}
-              <span className="text-white font-bold">+R$ 50 milhões</span> na XP Investimentos.
-            </p>
+            {/* Body */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="text-base sm:text-lg leading-relaxed mb-10 max-w-md"
+              style={{ color: 'var(--text)' }}
+            >
+              Planejamento financeiro, patrimonial e sucessório personalizado. 
+              Gerindo <span style={{ color: 'var(--cream)', fontWeight: 600 }}>+R$ 50 milhões</span> na 
+              XP Investimentos com foco em transparência e resultado.
+            </motion.p>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start pt-2">
-              <Button
+            {/* CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.32 }}
+            >
+              <button
                 onClick={handleWhatsApp}
-                style={{ backgroundColor: '#D4AF37', color: '#000000' }}
-                className="w-full sm:w-auto px-8 py-6 text-base font-bold rounded-xl hover:scale-105 transition-transform flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(212,175,55,0.35)]"
+                className="group inline-flex items-center gap-3 px-8 py-4 text-sm font-semibold uppercase tracking-widest text-black transition-all duration-300 hover:brightness-110"
+                style={{ backgroundColor: 'var(--gold)', letterSpacing: '0.12em' }}
               >
-                <MessageCircle className="h-5 w-5 flex-shrink-0" />
+                <MessageCircle className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" />
                 Agendar diagnóstico gratuito
-              </Button>
-            </div>
+              </button>
+            </motion.div>
 
-          </motion.div>
-
-          {/* Foto */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.93 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="flex-1 w-full max-w-[280px] sm:max-w-[340px] lg:max-w-md mx-auto"
-          >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10">
-              <img
-                src="https://horizons-cdn.hostinger.com/c25d6b49-33f2-461d-8ced-feb874cc0e61/928c124bad23db48363483874e4efd05.png"
-                alt="Theo Lima — Assessor Patrimonial XP"
-                className="w-full h-auto object-cover"
-              />
-              {/* Subtle gradient at bottom */}
-              <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/60 to-transparent" />
-            </div>
-          </motion.div>
-
+          </div>
         </div>
       </div>
+
     </section>
   );
 };
