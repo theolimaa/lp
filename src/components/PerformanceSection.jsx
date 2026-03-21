@@ -60,12 +60,12 @@ const PerformanceSection = () => {
       ref={ref} 
       className="relative py-20 px-4 overflow-hidden"
       style={{
-        background: 'linear-gradient(to bottom, #050A14 0%, #000000 100%)'
+        background: 'linear-gradient(to bottom, #111009 0%, #0C0B09 80px, #0C0B09 calc(100% - 80px), #111009 100%)'
       }}
     >
-      {/* Background Decorative Elements */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#00E5FF]/5 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#D4AF37]/5 rounded-full blur-[100px] pointer-events-none" />
+      {/* Subtle gold ambient — replaces old cyan blobs */}
+      <div className="absolute top-0 left-1/3 w-96 h-96 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(201,168,76,0.05) 0%, transparent 70%)', filter: 'blur(60px)' }} />
+      <div className="absolute bottom-0 right-1/3 w-96 h-96 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(201,168,76,0.04) 0%, transparent 70%)', filter: 'blur(60px)' }} />
 
       <div className="container mx-auto max-w-7xl relative z-10">
         <motion.div
