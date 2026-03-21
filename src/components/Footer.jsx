@@ -2,7 +2,7 @@ import React from 'react';
 import { Instagram, Linkedin, Mail } from 'lucide-react';
 
 const Footer = () => (
-  <footer style={{ backgroundColor: 'var(--bg)', borderTop: '1px solid var(--border-subtle)' }} className="py-14 px-6">
+  <footer style={{ background: 'linear-gradient(to bottom, #111009 0%, #0C0B09 100px)' }} className="py-14 px-6">
     <div className="container mx-auto max-w-6xl">
       <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10">
 
