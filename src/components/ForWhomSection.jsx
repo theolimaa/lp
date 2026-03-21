@@ -1,11 +1,10 @@
 import React from 'react';
 import { motion, useInView } from 'framer-motion';
-import { CheckCircle2, XCircle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Check, X } from 'lucide-react';
 
 const ForWhomSection = () => {
   const ref = React.useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-100px' });
+  const inView = useInView(ref, { once: true, margin: '-80px' });
 
   const handleWhatsApp = () => {
     const message = encodeURIComponent('Olá, Theo. Gostaria de agendar um diagnóstico de eficiência patrimonial.');
@@ -28,109 +27,115 @@ const ForWhomSection = () => {
   ];
 
   return (
-    <section ref={ref} className="relative py-16 lg:py-24 px-4 bg-[#020408]">
-      {/* Subtle background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/5 via-transparent to-[#00E5FF]/5 pointer-events-none" />
+    <section ref={ref} style={{ backgroundColor: 'var(--bg)' }} className="py-20 lg:py-28 px-6">
+      <div className="container mx-auto max-w-6xl">
 
-      <div className="container mx-auto max-w-6xl relative z-10">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="text-center mb-14"
+          className="mb-14 lg:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Essa assessoria é para você?
+          <h2
+            className="text-4xl lg:text-5xl font-bold mb-5"
+            style={{ color: 'var(--cream)', fontFamily: "'Playfair Display', serif" }}
+          >
+            Essa assessoria<br />é para você?
           </h2>
-          <p className="text-gray-400 text-lg max-w-xl mx-auto leading-relaxed">
-            Trabalho com um perfil específico de investidor.{' '}
+          <p className="text-base lg:text-lg leading-relaxed max-w-lg" style={{ color: 'var(--muted)' }}>
+            Trabalho com um perfil específico de investidor.
             Veja se faz sentido para o seu momento.
           </p>
         </motion.div>
 
-        {/* Cards */}
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-10">
+        {/* Two columns */}
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+
           {/* For You */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="relative rounded-2xl border border-[#D4AF37]/30 bg-[#0A101E]/80 p-8 overflow-hidden"
           >
-            <div className="absolute top-0 right-0 w-48 h-48 bg-[#D4AF37]/5 rounded-full blur-[80px] pointer-events-none" />
-            <h3 className="text-xl font-bold text-[#D4AF37] mb-6 flex items-center gap-2">
-              <CheckCircle2 className="w-6 h-6 text-[#D4AF37]" />
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] mb-6" style={{ color: 'var(--gold)' }}>
               É para você se...
-            </h3>
+            </p>
             <ul className="space-y-4">
               {forYou.map((item, i) => (
                 <motion.li
                   key={i}
-                  initial={{ opacity: 0, x: -10 }}
+                  initial={{ opacity: 0, x: -12 }}
                   animate={inView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.2 + i * 0.08 }}
-                  className="flex items-start gap-3 text-gray-200"
+                  transition={{ duration: 0.45, delay: 0.18 + i * 0.07 }}
+                  className="flex items-start gap-4 pb-4"
+                  style={{ borderBottom: '1px solid var(--border-subtle)' }}
                 >
-                  <CheckCircle2 className="w-5 h-5 text-[#D4AF37] mt-0.5 flex-shrink-0" />
-                  <span>{item}</span>
+                  <span className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(201,168,76,0.15)' }}>
+                    <Check className="w-3 h-3" style={{ color: 'var(--gold)' }} />
+                  </span>
+                  <span className="text-sm lg:text-base leading-relaxed" style={{ color: 'var(--text)' }}>{item}</span>
                 </motion.li>
               ))}
             </ul>
           </motion.div>
 
-          {/* Not For You */}
+          {/* Not For You + CTA */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="flex flex-col gap-6"
+            className="flex flex-col gap-8"
           >
-            <div className="relative rounded-2xl border border-white/10 bg-[#0A101E]/40 p-8 overflow-hidden">
-              <div className="absolute top-0 left-0 w-48 h-48 bg-red-900/5 rounded-full blur-[80px] pointer-events-none" />
-              <h3 className="text-xl font-bold text-gray-300 mb-6 flex items-center gap-2">
-                <XCircle className="w-6 h-6 text-gray-500" />
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] mb-6" style={{ color: 'var(--muted)' }}>
                 Não é para você se...
-              </h3>
+              </p>
               <ul className="space-y-4">
                 {notForYou.map((item, i) => (
                   <motion.li
                     key={i}
-                    initial={{ opacity: 0, x: 10 }}
+                    initial={{ opacity: 0, x: 12 }}
                     animate={inView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ duration: 0.5, delay: 0.3 + i * 0.08 }}
-                    className="flex items-start gap-3 text-gray-400"
+                    transition={{ duration: 0.45, delay: 0.3 + i * 0.07 }}
+                    className="flex items-start gap-4 pb-4"
+                    style={{ borderBottom: '1px solid var(--border-subtle)' }}
                   >
-                    <XCircle className="w-5 h-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>{item}</span>
+                    <span className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(255,255,255,0.05)' }}>
+                      <X className="w-3 h-3" style={{ color: 'var(--muted)' }} />
+                    </span>
+                    <span className="text-sm lg:text-base leading-relaxed" style={{ color: 'var(--muted)' }}>{item}</span>
                   </motion.li>
                 ))}
               </ul>
             </div>
 
-            {/* CTA inline */}
+            {/* CTA Card */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="rounded-2xl border border-[#00E5FF]/20 bg-gradient-to-br from-[#050A14] to-[#0A101E] p-8 flex flex-col justify-between"
+              className="p-8 lg:p-10 mt-auto"
+              style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border)' }}
             >
-              <p className="text-white text-lg font-medium mb-2">
-                Se você se identificou com o perfil acima...
+              <p className="text-xl lg:text-2xl font-bold mb-3" style={{ color: 'var(--cream)', fontFamily: "'Playfair Display', serif" }}>
+                Se você se identificou...
               </p>
-              <p className="text-gray-400 text-sm mb-6">
-                O próximo passo é um diagnóstico gratuito. Sem compromisso. Você entende onde está, onde pode chegar e como.
+              <p className="text-sm leading-relaxed mb-7" style={{ color: 'var(--muted)' }}>
+                O próximo passo é uma conversa. Gratuita, sem compromisso. 
+                Você entende onde está e onde pode chegar.
               </p>
-              <Button
+              <button
                 onClick={handleWhatsApp}
-                style={{ backgroundColor: '#D4AF37', color: '#000000' }}
-                className="w-full py-6 text-base font-bold rounded-xl hover:scale-105 transition-transform shadow-lg"
+                className="w-full py-4 text-sm font-semibold uppercase tracking-widest text-black transition-all duration-300 hover:brightness-110"
+                style={{ backgroundColor: 'var(--gold)', letterSpacing: '0.1em' }}
               >
                 Quero meu diagnóstico gratuito
-              </Button>
+              </button>
             </motion.div>
           </motion.div>
         </div>
+
       </div>
     </section>
   );
