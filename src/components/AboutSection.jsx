@@ -6,7 +6,7 @@ const AboutSection = () => {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section ref={ref} style={{ backgroundColor: 'var(--bg-2)', borderTop: '1px solid var(--border-subtle)' }} className="py-20 lg:py-28 px-6 overflow-hidden">
+    <section ref={ref} style={{ background: 'linear-gradient(to bottom, #0C0B09 0%, #111009 120px)' }} className="py-20 lg:py-28 px-6 overflow-hidden">
       <div className="container mx-auto max-w-6xl">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
