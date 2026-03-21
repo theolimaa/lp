@@ -32,7 +32,7 @@ const AuthoritySection = () => {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section ref={ref} style={{ backgroundColor: 'var(--bg-2)', borderTop: '1px solid var(--border-subtle)' }} className="py-12 lg:py-16 px-6">
+    <section ref={ref} style={{ background: 'linear-gradient(to bottom, #0C0B09 0%, #111009 100px)' }} className="py-12 lg:py-16 px-6">
       <div className="container mx-auto max-w-5xl">
         <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x" style={{ '--tw-divide-opacity': 1, divideColor: 'var(--border)' }}>
           {stats.map((s, i) => (
