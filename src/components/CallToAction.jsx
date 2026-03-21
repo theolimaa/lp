@@ -14,7 +14,7 @@ const CallToAction = () => {
   return (
     <section
       ref={ref}
-      style={{ backgroundColor: 'var(--bg-2)', borderTop: '1px solid var(--border-subtle)' }}
+      style={{ background: 'linear-gradient(to bottom, #0C0B09 0%, #111009 120px)' }}
       className="py-20 lg:py-28 px-6 overflow-hidden relative"
     >
       {/* Subtle gold ambient */}
