@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, useInView } from 'framer-motion';
-
+ 
 const steps = [
   {
     id: '01',
@@ -18,15 +18,15 @@ const steps = [
     desc: 'Atualizações e suporte constantes. Revisões periódicas para garantir que seguimos sempre em direção ao seu objetivo.',
   },
 ];
-
+ 
 const HowItWorks = () => {
   const ref = React.useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
-
+ 
   return (
     <section ref={ref} style={{ background: 'linear-gradient(to bottom, #0C0B09 0%, #111009 120px)' }} className="py-20 lg:py-28 px-6">
       <div className="container mx-auto max-w-6xl">
-
+ 
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -37,12 +37,12 @@ const HowItWorks = () => {
           <span className="block w-8 h-0.5 mb-6" style={{ backgroundColor: 'var(--gold)' }} />
           <h2
             className="text-4xl lg:text-5xl font-bold"
-            style={{ color: 'var(--cream)', fontFamily: "'Playfair Display', serif" }}
+            style={{ color: 'var(--cream)', fontFamily: "'Cormorant Garamond', serif" }}
           >
             Como funciona<br />a assessoria?
           </h2>
         </motion.div>
-
+ 
         {/* Steps */}
         <div className="space-y-0">
           {steps.map((step, i) => (
@@ -58,7 +58,7 @@ const HowItWorks = () => {
               <div className="flex items-start">
                 <span
                   className="text-5xl lg:text-6xl font-bold leading-none"
-                  style={{ color: 'var(--gold)', fontFamily: "'Playfair Display', serif", opacity: 0.35 }}
+                  style={{ color: 'var(--gold)', fontFamily: "'Cormorant Garamond', serif", opacity: 0.35 }}
                 >
                   {step.id}
                 </span>
@@ -78,10 +78,11 @@ const HowItWorks = () => {
             </motion.div>
           ))}
         </div>
-
+ 
       </div>
     </section>
   );
 };
-
+ 
 export default HowItWorks;
+ 
