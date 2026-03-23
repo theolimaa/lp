@@ -1,4 +1,4 @@
-
+ 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Loader2 } from 'lucide-react';
@@ -8,7 +8,7 @@ import { useToast } from '@/components/ui/use-toast';
 import { cn } from '@/lib/utils';
 import { supabase } from '@/lib/customSupabaseClient';
 import { useAuth } from '@/contexts/SupabaseAuthContext';
-
+ 
 // Separated reusable form content
 const FormContent = ({ onSubmit, isLoading, className }) => {
   const [formData, setFormData] = useState({
@@ -18,23 +18,23 @@ const FormContent = ({ onSubmit, isLoading, className }) => {
     investmentAmount: '',
     message: ''
   });
-
+ 
   const investmentOptions = [
     "A partir de 100k",
     "R$ 100.000 - R$ 500.000",
     "Acima de R$ 500.000"
   ];
-
+ 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
-
+ 
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit(formData, () => setFormData({ name: '', email: '', phone: '', investmentAmount: '', message: '' }));
   };
-
+ 
   return (
     <form onSubmit={handleSubmit} className={cn("space-y-4", className)}>
       <div className="space-y-2">
@@ -50,7 +50,7 @@ const FormContent = ({ onSubmit, isLoading, className }) => {
           className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:border-[#00E5FF]/50 focus:ring-1 focus:ring-[#00E5FF]/50 transition-all text-base"
         />
       </div>
-
+ 
       <div className="space-y-2">
         <label htmlFor="email" className="text-sm font-medium text-gray-200">E-mail</label>
         <input
@@ -64,7 +64,7 @@ const FormContent = ({ onSubmit, isLoading, className }) => {
           className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:border-[#00E5FF]/50 focus:ring-1 focus:ring-[#00E5FF]/50 transition-all text-base"
         />
       </div>
-
+ 
       <div className="space-y-2">
         <label htmlFor="phone" className="text-sm font-medium text-gray-200">Telefone</label>
         <input
@@ -78,7 +78,7 @@ const FormContent = ({ onSubmit, isLoading, className }) => {
           className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:border-[#00E5FF]/50 focus:ring-1 focus:ring-[#00E5FF]/50 transition-all text-base"
         />
       </div>
-
+ 
       <div className="space-y-2">
         <label htmlFor="investmentAmount" className="text-sm font-medium text-gray-200">Qual o valor deseja investir?</label>
         <div className="relative">
@@ -115,11 +115,11 @@ const FormContent = ({ onSubmit, isLoading, className }) => {
           className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:border-[#00E5FF]/50 focus:ring-1 focus:ring-[#00E5FF]/50 transition-all text-base resize-none"
         />
       </div>
-
+ 
       <Button
         type="submit"
         disabled={isLoading}
-        className="w-full bg-[#D4AF37] hover:bg-[#C4A030] text-black font-bold py-6 mt-4 rounded-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] disabled:opacity-70 disabled:cursor-not-allowed text-base"
+        className="w-full bg-[#4A8FE7] hover:bg-[#2660CC] text-white font-bold py-6 mt-4 rounded-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(74,143,231,0.3)] disabled:opacity-70 disabled:cursor-not-allowed text-base"
       >
         {isLoading ? (
           <>
@@ -133,16 +133,16 @@ const FormContent = ({ onSubmit, isLoading, className }) => {
     </form>
   );
 };
-
+ 
 const AdvisoryForm = ({ variant = 'modal', className }) => {
   const { isModalOpen, closeModal } = useModal();
   const { toast } = useToast();
   const { currentUser } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
-
+ 
   const handleFormSubmit = async (formData, resetForm) => {
     setIsLoading(true);
-
+ 
     try {
       const { error } = await supabase.from('advisory_submissions').insert({
         user_id: currentUser?.id || null, // Allow null for unauthenticated users
@@ -152,7 +152,7 @@ const AdvisoryForm = ({ variant = 'modal', className }) => {
         investment_amount: formData.investmentAmount,
         message: formData.message
       });
-
+ 
       if (error) throw error;
       
       toast({
@@ -160,15 +160,15 @@ const AdvisoryForm = ({ variant = 'modal', className }) => {
         description: "Entraremos em contato em breve.",
         className: "bg-[#050A14] border-[#00E5FF] text-white"
       });
-
+ 
       resetForm();
-
+ 
       if (variant === 'modal') {
         setTimeout(() => {
           closeModal();
         }, 2000);
       }
-
+ 
     } catch (error) {
       console.error(error);
       toast({
@@ -180,14 +180,14 @@ const AdvisoryForm = ({ variant = 'modal', className }) => {
       setIsLoading(false);
     }
   };
-
+ 
   // Embedded Variant
   if (variant === 'embedded') {
     return (
       <div className={cn("relative bg-[#050A14]/90 border border-[#00E5FF]/20 rounded-2xl p-6 shadow-[0_0_50px_rgba(0,0,0,0.5)] backdrop-blur-xl max-w-md mx-auto w-full", className)}>
         {/* Glow Effects */}
         <div className="absolute top-0 right-0 w-32 h-32 bg-[#00E5FF]/10 rounded-full blur-[50px] pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#D4AF37]/5 rounded-full blur-[50px] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#4A8FE7]/5 rounded-full blur-[50px] pointer-events-none" />
         
         <div className="relative z-10">
            <h3 className="text-2xl font-bold text-white mb-2">Solicite uma Assessoria</h3>
@@ -197,7 +197,7 @@ const AdvisoryForm = ({ variant = 'modal', className }) => {
       </div>
     );
   }
-
+ 
   // Modal Variant
   return (
     <AnimatePresence>
@@ -218,7 +218,7 @@ const AdvisoryForm = ({ variant = 'modal', className }) => {
           >
             <div className="relative bg-[#050A14] border border-[#00E5FF]/20 rounded-2xl p-6 md:p-8 shadow-[0_0_50px_rgba(0,0,0,0.5)] w-full max-w-md m-auto">
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#00E5FF]/10 rounded-full blur-[50px] pointer-events-none" />
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#D4AF37]/5 rounded-full blur-[50px] pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#4A8FE7]/5 rounded-full blur-[50px] pointer-events-none" />
               
               <button
                 onClick={closeModal}
@@ -226,7 +226,7 @@ const AdvisoryForm = ({ variant = 'modal', className }) => {
               >
                 <X className="w-6 h-6" />
               </button>
-
+ 
               <div className="relative z-10">
                 <h2 className="text-2xl font-bold text-white mb-2">Solicitar Assessoria</h2>
                 <p className="text-gray-400 text-sm mb-6">
@@ -241,5 +241,6 @@ const AdvisoryForm = ({ variant = 'modal', className }) => {
     </AnimatePresence>
   );
 };
-
+ 
 export default AdvisoryForm;
+ 
