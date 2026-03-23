@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
-
+ 
 const faqs = [
   {
     q: 'Qual o retorno mensal?',
@@ -24,7 +24,7 @@ const faqs = [
     a: 'Utilizamos a plataforma da XP Investimentos. Os riscos variam conforme o ativo, por isso a diversificação da carteira é fundamental. Tudo é montado respeitando seu perfil de investidor, com total transparência na escolha de cada produto.',
   },
 ];
-
+ 
 const FAQItem = ({ item, index, inView }) => {
   const [open, setOpen] = useState(false);
   return (
@@ -66,15 +66,15 @@ const FAQItem = ({ item, index, inView }) => {
     </motion.div>
   );
 };
-
+ 
 const FAQSection = () => {
   const ref = React.useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
-
+ 
   return (
     <section ref={ref} style={{ background: 'linear-gradient(to bottom, #111009 0%, #0C0B09 120px)' }} className="py-20 lg:py-28 px-6">
       <div className="container mx-auto max-w-4xl">
-
+ 
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -84,21 +84,22 @@ const FAQSection = () => {
           <span className="block w-8 h-0.5 mb-6" style={{ backgroundColor: 'var(--gold)' }} />
           <h2
             className="text-4xl lg:text-5xl font-bold"
-            style={{ color: 'var(--cream)', fontFamily: "'Playfair Display', serif" }}
+            style={{ color: 'var(--cream)', fontFamily: "'Cormorant Garamond', serif" }}
           >
             Perguntas<br />frequentes
           </h2>
         </motion.div>
-
+ 
         <div style={{ borderTop: '1px solid var(--border-subtle)' }}>
           {faqs.map((item, i) => (
             <FAQItem key={i} item={item} index={i} inView={inView} />
           ))}
         </div>
-
+ 
       </div>
     </section>
   );
 };
-
+ 
 export default FAQSection;
+ 
