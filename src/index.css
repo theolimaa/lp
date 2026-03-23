@@ -1,105 +1,93 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Raleway:wght@300;400;500;600;700&display=swap');
+import React from 'react';
+import { motion } from 'framer-motion';
+import { MessageCircle } from 'lucide-react';
  
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+const HeroSection = () => {
+  const handleWhatsApp = () => {
+    const message = encodeURIComponent("Olá, Theo. Gostaria de agendar um diagnóstico de eficiência patrimonial.");
+    window.open(`https://api.whatsapp.com/message/UZZHBP7KOC5AJ1?text=${message}`, '_blank');
+  };
  
-:root {
-  --bg:       #0C0B09;
-  --bg-2:     #111009;
-  --bg-card:  #181610;
-  --gold:     #4A8FE7;
-  --gold-dim: #2660CC;
-  --gold-pale:#C0D8FF;
-  --cream:    #F2EDE4;
-  --text:     #D9D4C8;
-  --muted:    #7A7570;
-  --border:   rgba(74,143,231,0.18);
-  --border-subtle: rgba(255,255,255,0.07);
-}
+  return (
+    <section className="relative min-h-screen flex items-end lg:items-center overflow-hidden" style={{ backgroundColor: 'var(--bg)' }}>
  
-* { margin: 0; padding: 0; box-sizing: border-box; }
+      {/* Background photo — full bleed on mobile, right half on desktop */}
+      <div className="absolute inset-0 lg:left-[46%]">
+        <img
+          src="https://horizons-cdn.hostinger.com/c25d6b49-33f2-461d-8ced-feb874cc0e61/928c124bad23db48363483874e4efd05.png"
+          alt="Theo Lima"
+          className="w-full h-full object-cover object-top"
+        />
+        {/* Gradient: stronger on mobile (covers bottom), subtle on desktop (left edge only) */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0C0B09] via-[#0C0B09]/60 to-[#0C0B09]/10 lg:bg-gradient-to-r lg:from-[#0C0B09] lg:via-[#0C0B09]/40 lg:to-transparent" />
+      </div>
  
-html { scroll-behavior: smooth; }
+      {/* Content */}
+      <div className="relative z-10 w-full">
+        <div className="container mx-auto px-6 sm:px-10 lg:px-16 max-w-7xl">
+          <div className="lg:max-w-[52%] pb-16 pt-40 lg:py-32">
  
-body {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 400;
-  background-color: var(--bg);
-  color: var(--text);
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+            {/* Eyebrow */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="flex items-center gap-3 mb-7"
+            >
+              <span className="block w-8 h-px" style={{ backgroundColor: 'var(--gold)' }} />
+              <span className="text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: 'var(--gold)', fontFamily: "'Raleway', sans-serif" }}>
+                Assessor Destaque 2024 · 2025 · Big Invest | XP
+              </span>
+            </motion.div>
  
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-weight: 300;
-  line-height: 1.15;
-  letter-spacing: 0.01em;
-}
+            {/* Headline */}
+            <motion.h1
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="text-5xl sm:text-6xl lg:text-7xl font-light leading-[1.05] mb-7"
+              style={{ color: 'var(--cream)', fontFamily: "'Cormorant Garamond', serif" }}
+            >
+              A assessoria que<br />
+              o seu <em style={{ color: 'var(--gold)', fontStyle: 'italic' }}>futuro</em><br />
+              precisa.
+            </motion.h1>
  
-/* Grain overlay for luxury feel */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-  opacity: 0.028;
-  pointer-events: none;
-  z-index: 9999;
-}
+            {/* Body */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="text-base sm:text-lg leading-relaxed mb-10 max-w-md"
+              style={{ color: 'var(--text)', fontFamily: "'Raleway', sans-serif", fontWeight: 300 }}
+            >
+              Planejamento financeiro, patrimonial e sucessório personalizado.
+              Gerindo <span style={{ color: 'var(--cream)', fontWeight: 600 }}>+R$ 50 milhões</span> na
+              XP Investimentos com foco em transparência e resultado.
+            </motion.p>
  
-/* Selection */
-::selection { background-color: var(--gold); color: #fff; }
+            {/* CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.32 }}
+            >
+              <button
+                onClick={handleWhatsApp}
+                className="btn-cta group"
+              >
+                <MessageCircle className="w-4 h-4 transition-transform duration-300 group-hover:scale-110 shrink-0" />
+                Agendar diagnóstico gratuito
+              </button>
+            </motion.div>
  
-/* Scrollbar */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 3px; }
+          </div>
+        </div>
+      </div>
  
-/* Gold rule divider */
-.rule-gold {
-  display: block;
-  width: 40px;
-  height: 2px;
-  background: var(--gold);
-}
+    </section>
+  );
+};
  
-/* ─── CTA BUTTON — responsive pill ──────────────────────────────── */
-.btn-cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  white-space: nowrap;
-  border-radius: 9999px;
-  background-color: var(--gold);
-  color: #fff;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  font-size: 0.7rem;
-  padding: 0.75rem 1.25rem;
-  transition: filter 0.25s ease, box-shadow 0.25s ease;
-}
- 
-.btn-cta:hover {
-  filter: brightness(1.1);
-  box-shadow: 0 4px 20px rgba(201, 168, 76, 0.25);
-}
- 
-@media (min-width: 640px) {
-  .btn-cta {
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    padding: 1rem 2rem;
-  }
-}
- 
-/* Full-width variant */
-.btn-cta-full {
-  width: 100%;
-}
+export default HeroSection;
  
