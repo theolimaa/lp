@@ -1,4 +1,4 @@
-
+ 
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Trash2, Loader2, LayoutDashboard, Calendar, DollarSign, MessageSquare, Mail, Phone, User } from 'lucide-react';
@@ -6,17 +6,17 @@ import { supabase } from '@/lib/customSupabaseClient';
 import { useAuth } from '@/contexts/SupabaseAuthContext';
 import { useToast } from '@/components/ui/use-toast';
 import { Button } from '@/components/ui/button';
-
+ 
 const SubmissionsPage = () => {
   const [submissions, setSubmissions] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { currentUser } = useAuth();
   const { toast } = useToast();
-
+ 
   useEffect(() => {
     fetchSubmissions();
   }, []);
-
+ 
   const fetchSubmissions = async () => {
     setIsLoading(true);
     // Fetch ALL submissions (Admin view)
@@ -24,7 +24,7 @@ const SubmissionsPage = () => {
       .from('advisory_submissions')
       .select('*')
       .order('created_at', { ascending: false });
-
+ 
     if (error) {
       toast({
         variant: "destructive",
@@ -36,15 +36,15 @@ const SubmissionsPage = () => {
     }
     setIsLoading(false);
   };
-
+ 
   const handleDelete = async (id) => {
     if (!window.confirm("Tem certeza que deseja excluir esta solicitação?")) return;
-
+ 
     const { error } = await supabase
       .from('advisory_submissions')
       .delete()
       .eq('id', id);
-
+ 
     if (error) {
       toast({
         variant: "destructive",
@@ -59,7 +59,7 @@ const SubmissionsPage = () => {
       setSubmissions(prev => prev.filter(sub => sub.id !== id));
     }
   };
-
+ 
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString('pt-BR', {
       day: '2-digit',
@@ -69,14 +69,14 @@ const SubmissionsPage = () => {
       minute: '2-digit'
     });
   };
-
+ 
   return (
     <div className="min-h-screen bg-black pt-8 pb-20 px-4">
       <div className="container mx-auto max-w-6xl">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
           <div>
             <h1 className="text-3xl font-bold text-white mb-2 flex items-center gap-3">
-              <LayoutDashboard className="h-8 w-8 text-[#D4AF37]" />
+              <LayoutDashboard className="h-8 w-8 text-[#4A8FE7]" />
               Painel Administrativo
             </h1>
             <p className="text-gray-400">Gerencie todas as solicitações de assessoria recebidas</p>
@@ -87,10 +87,10 @@ const SubmissionsPage = () => {
             <span className="ml-2 text-xl font-bold text-[#00E5FF]">{submissions.length}</span>
           </div>
         </div>
-
+ 
         {isLoading ? (
           <div className="flex justify-center py-20">
-            <Loader2 className="w-10 h-10 text-[#D4AF37] animate-spin" />
+            <Loader2 className="w-10 h-10 text-[#4A8FE7] animate-spin" />
           </div>
         ) : submissions.length === 0 ? (
           <div className="text-center py-20 bg-white/5 rounded-2xl border border-white/10">
@@ -106,7 +106,7 @@ const SubmissionsPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.05 }}
-                className="bg-[#050A14] border border-white/10 rounded-xl p-6 relative group hover:border-[#D4AF37]/50 transition-colors shadow-lg"
+                className="bg-[#050A14] border border-white/10 rounded-xl p-6 relative group hover:border-[#4A8FE7]/50 transition-colors shadow-lg"
               >
                 <div className="absolute top-4 right-4 flex gap-2">
                    <span className="text-xs text-gray-500 bg-black/50 px-2 py-1 rounded border border-white/5">
@@ -122,31 +122,31 @@ const SubmissionsPage = () => {
                     <Trash2 className="w-4 h-4" />
                   </Button>
                 </div>
-
+ 
                 <div className="flex flex-col lg:flex-row gap-6 mt-4">
                   {/* Contact Info */}
                   <div className="flex-1 space-y-3 min-w-[300px]">
-                     <div className="flex items-center gap-2 text-[#D4AF37] mb-4 text-sm font-medium">
+                     <div className="flex items-center gap-2 text-[#4A8FE7] mb-4 text-sm font-medium">
                       <Calendar className="w-4 h-4" />
                       {formatDate(submission.created_at)}
                     </div>
-
+ 
                     <div className="flex items-center gap-3 text-white">
                       <User className="w-4 h-4 text-gray-500" />
                       <span className="font-bold text-lg">{submission.name}</span>
                     </div>
-
+ 
                     <div className="flex items-center gap-3 text-gray-300">
                       <Mail className="w-4 h-4 text-gray-500" />
                       <span>{submission.email}</span>
                     </div>
-
+ 
                     <div className="flex items-center gap-3 text-gray-300">
                       <Phone className="w-4 h-4 text-gray-500" />
                       <span>{submission.phone}</span>
                     </div>
                   </div>
-
+ 
                   {/* Investment & Message */}
                   <div className="flex-[2] space-y-4">
                      <div className="bg-white/5 rounded-lg p-3 inline-flex items-center gap-2 text-[#00E5FF] border border-[#00E5FF]/20">
@@ -173,5 +173,6 @@ const SubmissionsPage = () => {
     </div>
   );
 };
-
+ 
 export default SubmissionsPage;
+ 
