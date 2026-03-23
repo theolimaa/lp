@@ -8,13 +8,13 @@
   --bg:       #0C0B09;
   --bg-2:     #111009;
   --bg-card:  #181610;
-  --gold:     #C9A84C;
-  --gold-dim: #8A6F30;
-  --gold-pale:#F0DFA0;
+  --gold:     #4A8FE7;
+  --gold-dim: #2660CC;
+  --gold-pale:#C0D8FF;
   --cream:    #F2EDE4;
   --text:     #D9D4C8;
   --muted:    #7A7570;
-  --border:   rgba(201,168,76,0.18);
+  --border:   rgba(74,143,231,0.18);
   --border-subtle: rgba(255,255,255,0.07);
 }
  
@@ -51,7 +51,7 @@ body::before {
 }
  
 /* Selection */
-::selection { background-color: var(--gold); color: #000; }
+::selection { background-color: var(--gold); color: #fff; }
  
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
@@ -75,7 +75,7 @@ body::before {
   white-space: nowrap;
   border-radius: 9999px;
   background-color: var(--gold);
-  color: #000;
+  color: #fff;
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
   text-transform: uppercase;
