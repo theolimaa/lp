@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Wallet, Target, ShieldAlert, Users, Landmark, TrendingUp } from 'lucide-react';
-
+ 
 const pillars = [
   { id: 1, title: 'Gestão de Caixa',           desc: 'Controle e planejamento de entrada e saída mensal', icon: Wallet },
   { id: 2, title: 'Gestão de Objetivos',        desc: 'Entender necessidades e objetivos de curto, médio e longo prazo', icon: Target },
@@ -10,15 +10,15 @@ const pillars = [
   { id: 5, title: 'Planejamento Tributário',    desc: 'Estratégias legais para reduzir a carga de impostos', icon: Landmark },
   { id: 6, title: 'Gestão de Investimentos',    desc: 'Carteira alinhada aos objetivos e perfil do investidor', icon: TrendingUp },
 ];
-
+ 
 const PillarSection = () => {
   const ref = React.useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
-
+ 
   return (
     <section ref={ref} style={{ background: 'linear-gradient(to bottom, #111009 0%, #0C0B09 120px)' }} className="py-20 lg:py-28 px-6">
       <div className="container mx-auto max-w-6xl">
-
+ 
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -30,7 +30,7 @@ const PillarSection = () => {
             <span className="block w-8 h-0.5 mb-6" style={{ backgroundColor: 'var(--gold)' }} />
             <h2
               className="text-4xl lg:text-5xl font-bold"
-              style={{ color: 'var(--cream)', fontFamily: "'Playfair Display', serif" }}
+              style={{ color: 'var(--cream)', fontFamily: "'Cormorant Garamond', serif" }}
             >
               6 pilares do<br />planejamento financeiro
             </h2>
@@ -39,7 +39,7 @@ const PillarSection = () => {
             Uma visão 360° do seu patrimônio, da renda ao legado.
           </p>
         </motion.div>
-
+ 
         {/* Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px" style={{ backgroundColor: 'var(--border-subtle)' }}>
           {pillars.map((p, i) => (
@@ -69,10 +69,11 @@ const PillarSection = () => {
             </motion.div>
           ))}
         </div>
-
+ 
       </div>
     </section>
   );
 };
-
+ 
 export default PillarSection;
+ 
