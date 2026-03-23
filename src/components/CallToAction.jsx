@@ -20,7 +20,7 @@ const CallToAction = () => {
       {/* Subtle gold ambient */}
       <div
         className="absolute right-0 top-0 w-96 h-96 pointer-events-none"
-        style={{ background: 'radial-gradient(circle at top right, rgba(201,168,76,0.07) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(circle at top right, rgba(74,143,231,0.07) 0%, transparent 70%)' }}
       />
  
       <div className="container mx-auto max-w-5xl relative z-10">
