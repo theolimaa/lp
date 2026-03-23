@@ -1,15 +1,15 @@
 import React from 'react';
 import { motion, useInView } from 'framer-motion';
-
+ 
 const AboutSection = () => {
   const ref = React.useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
-
+ 
   return (
     <section ref={ref} style={{ background: 'linear-gradient(to bottom, #0C0B09 0%, #111009 120px)' }} className="py-20 lg:py-28 px-6 overflow-hidden">
       <div className="container mx-auto max-w-6xl">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-
+ 
           {/* Image */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -50,7 +50,7 @@ const AboutSection = () => {
               </div>
             </motion.div>
           </motion.div>
-
+ 
           {/* Content */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
@@ -62,12 +62,12 @@ const AboutSection = () => {
               <span className="block w-8 h-0.5 mb-6" style={{ backgroundColor: 'var(--gold)' }} />
               <h2
                 className="text-4xl lg:text-5xl font-bold leading-tight mb-6"
-                style={{ color: 'var(--cream)', fontFamily: "'Playfair Display', serif" }}
+                style={{ color: 'var(--cream)', fontFamily: "'Cormorant Garamond', serif" }}
               >
                 Minha história
               </h2>
             </div>
-
+ 
             <div className="space-y-5 text-base lg:text-[17px] leading-relaxed" style={{ color: 'var(--text)' }}>
               <p>
                 Me chamo Theo Lima, sócio e assessor na <strong style={{ color: 'var(--cream)' }}>Big Invest | XP Inc.</strong> 
@@ -80,7 +80,7 @@ const AboutSection = () => {
                 Hoje assessoro empresários, médicos, diretores e influenciadores — com conhecimento técnico e foco em entregar o melhor resultado de forma transparente.
               </p>
             </div>
-
+ 
             {/* Three pillars — editorial list */}
             <div className="space-y-0 pt-4" style={{ borderTop: '1px solid var(--border-subtle)' }}>
               {[
@@ -98,11 +98,12 @@ const AboutSection = () => {
               ))}
             </div>
           </motion.div>
-
+ 
         </div>
       </div>
     </section>
   );
 };
-
+ 
 export default AboutSection;
+ 
