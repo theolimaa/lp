@@ -1,4 +1,4 @@
-
+ 
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -7,25 +7,25 @@ import { supabase } from '@/lib/customSupabaseClient';
 import { useAuth } from '@/contexts/SupabaseAuthContext';
 import { useToast } from '@/components/ui/use-toast';
 import { Button } from '@/components/ui/button';
-
+ 
 const AdminDashboard = () => {
   const [submissions, setSubmissions] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { currentUser, logout } = useAuth();
   const { toast } = useToast();
   const navigate = useNavigate();
-
+ 
   useEffect(() => {
     fetchSubmissions();
   }, []);
-
+ 
   const fetchSubmissions = async () => {
     setIsLoading(true);
     const { data, error } = await supabase
       .from('advisory_submissions')
       .select('*')
       .order('created_at', { ascending: false });
-
+ 
     if (error) {
       toast({
         variant: "destructive",
@@ -37,15 +37,15 @@ const AdminDashboard = () => {
     }
     setIsLoading(false);
   };
-
+ 
   const handleDelete = async (id) => {
     if (!window.confirm("Tem certeza que deseja excluir esta solicitação?")) return;
-
+ 
     const { error } = await supabase
       .from('advisory_submissions')
       .delete()
       .eq('id', id);
-
+ 
     if (error) {
       toast({
         variant: "destructive",
@@ -60,12 +60,12 @@ const AdminDashboard = () => {
       setSubmissions(prev => prev.filter(sub => sub.id !== id));
     }
   };
-
+ 
   const handleLogout = async () => {
     await logout();
     navigate('/admin-login');
   };
-
+ 
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString('pt-BR', {
       day: '2-digit',
@@ -75,19 +75,19 @@ const AdminDashboard = () => {
       minute: '2-digit'
     });
   };
-
+ 
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Admin Header */}
       <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[#050A14] backdrop-blur-xl">
         <div className="container mx-auto max-w-7xl flex h-16 items-center justify-between px-4">
           <div className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded bg-[#D4AF37] flex items-center justify-center font-bold text-black">
+            <div className="h-8 w-8 rounded bg-[#4A8FE7] hover:bg-[#2660CC] text-white font-bold">
               B
             </div>
             <span className="text-lg font-bold text-white hidden sm:block">Big Invest <span className="text-gray-500 font-normal">| Admin</span></span>
           </div>
-
+ 
           <div className="flex items-center gap-4">
             <span className="text-sm text-gray-400 hidden md:block">
               {currentUser?.email}
@@ -104,13 +104,13 @@ const AdminDashboard = () => {
           </div>
         </div>
       </header>
-
+ 
       {/* Content */}
       <div className="container mx-auto max-w-7xl pt-8 pb-20 px-4">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
           <div>
             <h1 className="text-3xl font-bold text-white mb-2 flex items-center gap-3">
-              <LayoutDashboard className="h-8 w-8 text-[#D4AF37]" />
+              <LayoutDashboard className="h-8 w-8 text-[#4A8FE7]" />
               Gestão de Leads
             </h1>
             <p className="text-gray-400">Acompanhe as solicitações de assessoria em tempo real</p>
@@ -122,10 +122,10 @@ const AdminDashboard = () => {
             <span className="text-2xl font-bold text-[#00E5FF]">{submissions.length}</span>
           </div>
         </div>
-
+ 
         {isLoading ? (
           <div className="flex justify-center py-20">
-            <Loader2 className="w-10 h-10 text-[#D4AF37] animate-spin" />
+            <Loader2 className="w-10 h-10 text-[#4A8FE7] animate-spin" />
           </div>
         ) : submissions.length === 0 ? (
           <div className="text-center py-20 bg-white/5 rounded-2xl border border-white/10">
@@ -141,7 +141,7 @@ const AdminDashboard = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.05 }}
-                className="bg-[#050A14] border border-white/10 rounded-xl p-6 relative group hover:border-[#D4AF37]/50 transition-colors shadow-lg"
+                className="bg-[#050A14] border border-white/10 rounded-xl p-6 relative group hover:border-[#4A8FE7]/50 transition-colors shadow-lg"
               >
                 <div className="absolute top-4 right-4 flex gap-2">
                   <Button
@@ -154,36 +154,36 @@ const AdminDashboard = () => {
                     <Trash2 className="w-4 h-4" />
                   </Button>
                 </div>
-
+ 
                 <div className="flex flex-col lg:flex-row gap-6 mt-2">
                   {/* Contact Info */}
                   <div className="flex-1 space-y-4 min-w-[300px]">
-                     <div className="flex items-center gap-2 text-[#D4AF37] text-xs font-bold uppercase tracking-widest bg-[#D4AF37]/10 w-fit px-2 py-1 rounded">
+                     <div className="flex items-center gap-2 text-[#4A8FE7] text-xs font-bold uppercase tracking-widest bg-[#4A8FE7]/10 w-fit px-2 py-1 rounded">
                       <Calendar className="w-3 h-3" />
                       {formatDate(submission.created_at)}
                     </div>
-
+ 
                     <div className="space-y-2">
-                        <div className="flex items-center gap-3 text-white group-hover:text-[#D4AF37] transition-colors">
+                        <div className="flex items-center gap-3 text-white group-hover:text-[#4A8FE7] transition-colors">
                             <User className="w-5 h-5 text-gray-500" />
                             <span className="font-bold text-xl">{submission.name}</span>
                         </div>
-
+ 
                         <div className="flex items-center gap-3 text-gray-300">
                             <Mail className="w-4 h-4 text-gray-500" />
                             <span>{submission.email}</span>
                         </div>
-
+ 
                         <div className="flex items-center gap-3 text-gray-300">
                             <Phone className="w-4 h-4 text-gray-500" />
                             <span>{submission.phone}</span>
                         </div>
                     </div>
                   </div>
-
+ 
                   {/* Divider on desktop */}
                   <div className="hidden lg:block w-[1px] bg-white/10"></div>
-
+ 
                   {/* Investment & Message */}
                   <div className="flex-[2] space-y-4">
                      <div>
@@ -213,5 +213,6 @@ const AdminDashboard = () => {
     </div>
   );
 };
-
+ 
 export default AdminDashboard;
+ 
