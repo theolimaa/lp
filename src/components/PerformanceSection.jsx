@@ -3,13 +3,13 @@ import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, TrendingUp, Calendar, Wallet } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-
+ 
 const PerformanceSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-100px' });
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-
+ 
   const portfolios = [
     {
       id: 1,
@@ -36,25 +36,25 @@ const PerformanceSection = () => {
       period: "09/03/2024 a 27/10/2024"
     }
   ];
-
+ 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % portfolios.length);
   };
-
+ 
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev - 1 + portfolios.length) % portfolios.length);
   };
-
+ 
   useEffect(() => {
     if (inView && !isPaused) {
       const interval = setInterval(() => {
         nextSlide();
       }, 4000); // 4 seconds interval
-
+ 
       return () => clearInterval(interval);
     }
   }, [inView, currentIndex, isPaused]);
-
+ 
   return (
     <section 
       ref={ref} 
@@ -64,9 +64,9 @@ const PerformanceSection = () => {
       }}
     >
       {/* Subtle gold ambient — replaces old cyan blobs */}
-      <div className="absolute top-0 left-1/3 w-96 h-96 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(201,168,76,0.05) 0%, transparent 70%)', filter: 'blur(60px)' }} />
-      <div className="absolute bottom-0 right-1/3 w-96 h-96 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(201,168,76,0.04) 0%, transparent 70%)', filter: 'blur(60px)' }} />
-
+      <div className="absolute top-0 left-1/3 w-96 h-96 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(74,143,231,0.05) 0%, transparent 70%)', filter: 'blur(60px)' }} />
+      <div className="absolute bottom-0 right-1/3 w-96 h-96 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(74,143,231,0.04) 0%, transparent 70%)', filter: 'blur(60px)' }} />
+ 
       <div className="container mx-auto max-w-7xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -81,7 +81,7 @@ const PerformanceSection = () => {
             Veja a performance real de carteiras sob nossa gestão, superando consistentemente o CDI com estratégias personalizadas.
           </p>
         </motion.div>
-
+ 
         {/* Carousel Container */}
         <div 
           className="relative max-w-5xl mx-auto"
@@ -110,7 +110,7 @@ const PerformanceSection = () => {
               <ChevronRight className="w-6 h-6" />
             </Button>
           </div>
-
+ 
           {/* Main Slide Card */}
           <div className="relative rounded-2xl border border-[#00E5FF]/20 bg-[#0A101E]/40 backdrop-blur-md shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden">
             {/* Glow Effect */}
@@ -138,25 +138,25 @@ const PerformanceSection = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
                   </div>
                 </div>
-
+ 
                 {/* Metrics Section */}
                 <div className="lg:w-[40%] p-6 md:p-8 flex flex-col justify-center space-y-8 bg-gradient-to-br from-white/5 to-transparent">
                   <div className="space-y-2">
                     <h3 className="text-xl font-medium text-white/90 flex items-center gap-2">
-                      <Wallet className="w-5 h-5 text-[#D4AF37]" />
+                      <Wallet className="w-5 h-5 text-[#4A8FE7]" />
                       Rentabilidade da Carteira
                     </h3>
-                    <div className="h-[2px] w-12 bg-[#D4AF37] rounded-full" />
+                    <div className="h-[2px] w-12 bg-[#4A8FE7] rounded-full" />
                   </div>
-
+ 
                   <div className="grid grid-cols-1 gap-6">
-                    <div className="bg-black/30 p-4 rounded-xl border border-white/5 hover:border-[#D4AF37]/30 transition-colors">
+                    <div className="bg-black/30 p-4 rounded-xl border border-white/5 hover:border-[#4A8FE7]/30 transition-colors">
                       <p className="text-sm text-gray-400 mb-1">Rendimento Total</p>
-                      <p className="text-2xl md:text-3xl font-bold text-[#D4AF37] tracking-tight">
+                      <p className="text-2xl md:text-3xl font-bold text-[#4A8FE7] tracking-tight">
                         {portfolios[currentIndex].yield}
                       </p>
                     </div>
-
+ 
                     <div className="grid grid-cols-2 gap-4">
                       <div className="bg-black/30 p-4 rounded-xl border border-white/5 hover:border-[#00E5FF]/30 transition-colors">
                         <p className="text-xs text-gray-400 mb-1 flex items-center gap-1">
@@ -166,7 +166,7 @@ const PerformanceSection = () => {
                           {portfolios[currentIndex].return}
                         </p>
                       </div>
-
+ 
                       <div className="bg-black/30 p-4 rounded-xl border border-white/5 hover:border-[#00E5FF]/30 transition-colors">
                         <p className="text-xs text-gray-400 mb-1 flex items-center gap-1">
                           <TrendingUp className="w-3 h-3 text-[#00E5FF]" /> % do CDI
@@ -177,7 +177,7 @@ const PerformanceSection = () => {
                       </div>
                     </div>
                   </div>
-
+ 
                   <div className="pt-4 border-t border-white/10">
                     <div className="flex items-center gap-2 text-sm text-gray-500 bg-white/5 py-2 px-3 rounded-lg w-fit">
                       <Calendar className="w-4 h-4" />
@@ -188,7 +188,7 @@ const PerformanceSection = () => {
               </motion.div>
             </AnimatePresence>
           </div>
-
+ 
           {/* Dots Indicator */}
           <div className="flex justify-center gap-3 mt-8">
             {portfolios.map((_, index) => (
@@ -205,7 +205,7 @@ const PerformanceSection = () => {
               />
             ))}
           </div>
-
+ 
           {/* Mobile Navigation Controls (Visible only on small screens) */}
           <div className="flex justify-between mt-4 md:hidden px-4">
             <Button
@@ -226,7 +226,7 @@ const PerformanceSection = () => {
             </Button>
           </div>
         </div>
-
+ 
         <motion.p 
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
@@ -239,5 +239,6 @@ const PerformanceSection = () => {
     </section>
   );
 };
-
+ 
 export default PerformanceSection;
+ 
