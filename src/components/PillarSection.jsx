@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Wallet, Target, ShieldAlert, Users, Landmark, TrendingUp } from 'lucide-react';
- 
+
 const pillars = [
   { id: 1, title: 'Gestão de Caixa',           desc: 'Controle e planejamento de entrada e saída mensal', icon: Wallet },
   { id: 2, title: 'Gestão de Objetivos',        desc: 'Entender necessidades e objetivos de curto, médio e longo prazo', icon: Target },
@@ -10,70 +10,83 @@ const pillars = [
   { id: 5, title: 'Planejamento Tributário',    desc: 'Estratégias legais para reduzir a carga de impostos', icon: Landmark },
   { id: 6, title: 'Gestão de Investimentos',    desc: 'Carteira alinhada aos objetivos e perfil do investidor', icon: TrendingUp },
 ];
- 
+
 const PillarSection = () => {
   const ref = React.useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
- 
+
   return (
-    <section ref={ref} style={{ background: 'linear-gradient(to bottom, #111009 0%, #0C0B09 120px)' }} className="py-20 lg:py-28 px-6">
+    <section
+      ref={ref}
+      className="py-20 lg:py-28 px-6"
+      style={{ background: 'linear-gradient(to bottom, #111111 0%, #0D0D0D 120px)' }}
+    >
       <div className="container mx-auto max-w-6xl">
- 
+
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="mb-14 lg:mb-16 lg:flex lg:items-end lg:justify-between"
         >
           <div>
-            <span className="block w-8 h-0.5 mb-6" style={{ backgroundColor: 'var(--gold)' }} />
-            <h2
-              className="text-4xl lg:text-5xl font-bold"
-              style={{ color: 'var(--cream)', fontFamily: "'Cormorant Garamond', serif" }}
-            >
+            <p className="eyebrow mb-4">Metodologia</p>
+            <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800, fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#FFFFFF', marginBottom: '0.75rem' }}>
               6 pilares do<br />planejamento financeiro
             </h2>
+            <span className="block w-12 h-1" style={{ backgroundColor: 'var(--gold)' }} />
           </div>
-          <p className="text-sm lg:text-base leading-relaxed max-w-xs mt-5 lg:mt-0 lg:mb-1" style={{ color: 'var(--muted)' }}>
+          <p className="mt-6 lg:mt-0 lg:mb-2 max-w-xs leading-relaxed" style={{ color: 'var(--text-muted)', fontSize: '0.92rem' }}>
             Uma visão 360° do seu patrimônio, da renda ao legado.
           </p>
         </motion.div>
- 
-        {/* Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px" style={{ backgroundColor: 'var(--border-subtle)' }}>
+
+        {/* Grid — solid cards, no glassmorphism */}
+        <div
+          className="grid sm:grid-cols-2 lg:grid-cols-3"
+          style={{ borderTop: '1px solid var(--border-sub)', borderLeft: '1px solid var(--border-sub)' }}
+        >
           {pillars.map((p, i) => (
             <motion.div
               key={p.id}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.55, delay: i * 0.08 }}
-              className="group flex flex-col gap-4 p-8 transition-colors duration-300"
-              style={{ backgroundColor: 'var(--bg-card)' }}
-              onMouseEnter={e => e.currentTarget.style.backgroundColor = 'var(--bg-2)'}
+              transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+              className="flex flex-col gap-5 p-8 transition-colors duration-250 cursor-default"
+              style={{ backgroundColor: 'var(--bg-card)', borderRight: '1px solid var(--border-sub)', borderBottom: '1px solid var(--border-sub)' }}
+              onMouseEnter={e => e.currentTarget.style.backgroundColor = '#1f1d15'}
               onMouseLeave={e => e.currentTarget.style.backgroundColor = 'var(--bg-card)'}
             >
-              <div className="flex items-start justify-between">
-                <p.icon className="w-6 h-6 transition-colors duration-300" style={{ color: 'var(--gold)' }} strokeWidth={1.5} />
-                <span className="text-xs tabular-nums font-semibold" style={{ color: 'var(--gold-dim)' }}>0{p.id}</span>
+              {/* Icon in gold-tinted square */}
+              <div
+                className="w-14 h-14 flex items-center justify-center"
+                style={{ backgroundColor: 'var(--gold-bg)', border: '1px solid var(--border)' }}
+              >
+                <p.icon className="w-6 h-6" style={{ color: 'var(--gold)' }} strokeWidth={1.5} />
               </div>
               <div>
+                <p
+                  className="eyebrow mb-1"
+                  style={{ fontSize: '0.65rem', letterSpacing: '0.12em', marginBottom: '0.3rem' }}
+                >
+                  {String(p.id).padStart(2, '0')}
+                </p>
                 <h3
-                  className="text-base font-bold mb-2 uppercase tracking-wide"
-                  style={{ color: 'var(--cream)', letterSpacing: '0.04em' }}
+                  className="font-bold uppercase mb-2"
+                  style={{ color: '#FFFFFF', fontFamily: "'Montserrat', sans-serif", fontSize: '0.88rem', letterSpacing: '0.06em' }}
                 >
                   {p.title}
                 </h3>
-                <p className="text-sm leading-relaxed" style={{ color: 'var(--muted)' }}>{p.desc}</p>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', lineHeight: 1.6 }}>{p.desc}</p>
               </div>
             </motion.div>
           ))}
         </div>
- 
+
       </div>
     </section>
   );
 };
- 
+
 export default PillarSection;
- 
