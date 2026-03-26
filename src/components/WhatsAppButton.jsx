@@ -51,5 +51,3 @@ const WhatsAppButton = () => (
 );
 
 export default WhatsAppButton;
-
-export default WhatsAppButton;
