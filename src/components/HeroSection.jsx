@@ -9,29 +9,42 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-end lg:items-center overflow-hidden" style={{ backgroundColor: 'var(--bg-primary)' }}>
-
-      {/* Photo — full bleed mobile, right half desktop */}
-      <div className="absolute inset-0 lg:left-[46%]">
+    <section
+      className="relative min-h-screen flex items-end lg:items-center overflow-hidden"
+      style={{ backgroundColor: 'var(--bg-dark)' }}
+    >
+      {/* Photo */}
+      <div className="absolute inset-0 lg:left-[38%]">
         <img
           src="https://horizons-cdn.hostinger.com/c25d6b49-33f2-461d-8ced-feb874cc0e61/928c124bad23db48363483874e4efd05.png"
           alt="Theo Lima"
-          className="w-full h-full object-cover object-top"
+          className="w-full h-full object-cover"
+          style={{ objectPosition: 'center 15%' }}
         />
-        <div className="absolute inset-0"
-          style={{ background: 'linear-gradient(to top, #0D0D0D 0%, rgba(13,13,13,0.6) 50%, rgba(13,13,13,0.1) 100%)' }}
+        {/* Mobile: fade bottom only */}
+        <div
+          className="absolute inset-0 lg:hidden"
+          style={{ background: 'linear-gradient(to top, #0D0D0D 0%, rgba(13,13,13,0.55) 45%, rgba(13,13,13,0.05) 100%)' }}
         />
-        <div className="absolute inset-0 hidden lg:block"
-          style={{ background: 'linear-gradient(to right, #0D0D0D 0%, rgba(13,13,13,0.5) 50%, transparent 100%)' }}
+        {/* Desktop: subtle left fade, almost transparent on right */}
+        <div
+          className="absolute inset-0 hidden lg:block"
+          style={{ background: 'linear-gradient(to right, #0D0D0D 0%, rgba(13,13,13,0.4) 38%, rgba(13,13,13,0.0) 62%)' }}
         />
       </div>
+
+      {/* Gradient into next section (light) */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-28 pointer-events-none"
+        style={{ background: 'linear-gradient(to bottom, transparent, #0D0D0D)' }}
+      />
 
       {/* Content */}
       <div className="relative z-10 w-full">
         <div className="container mx-auto px-6 sm:px-10 lg:px-16 max-w-7xl">
-          <div className="lg:max-w-[52%] pb-14 pt-40 lg:py-32">
+          <div className="lg:max-w-[50%] pb-14 pt-40 lg:py-36">
 
-            {/* Eyebrow — flanked by gold lines (Henrique Tasca pattern) */}
+            {/* Eyebrow */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -51,8 +64,8 @@ const HeroSection = () => {
               style={{
                 fontFamily: "'Montserrat', sans-serif",
                 fontWeight: 900,
-                fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
-                lineHeight: 1.05,
+                fontSize: 'clamp(2.6rem, 6.5vw, 4.8rem)',
+                lineHeight: 1.0,
                 color: '#FFFFFF',
                 marginBottom: '1.5rem',
               }}
@@ -69,7 +82,7 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
               className="leading-relaxed mb-10 max-w-md"
-              style={{ color: 'var(--text-body)', fontSize: 'clamp(0.95rem, 2vw, 1.1rem)' }}
+              style={{ color: 'var(--text-body-dark)', fontSize: 'clamp(0.95rem, 2vw, 1.1rem)' }}
             >
               Planejamento financeiro, patrimonial e sucessório personalizado.
               Gerindo{' '}
@@ -77,25 +90,15 @@ const HeroSection = () => {
               {' '}na XP Investimentos com foco em transparência e resultado.
             </motion.p>
 
-            {/* CTA — sharp, uppercase, gold fill */}
+            {/* CTA */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.32 }}
             >
-              <button
-                onClick={handleWhatsApp}
-                className="inline-flex items-center gap-3 px-8 py-4 font-bold text-black uppercase transition-all duration-200 hover:brightness-110 active:scale-95"
-                style={{
-                  backgroundColor: 'var(--gold)',
-                  fontFamily: "'Montserrat', sans-serif",
-                  fontSize: '0.78rem',
-                  letterSpacing: '0.12em',
-                  minHeight: '52px',
-                }}
-              >
+              <button onClick={handleWhatsApp} className="btn-gold">
                 <MessageCircle className="w-4 h-4 flex-shrink-0" />
-                AGENDAR DIAGNÓSTICO GRATUITO
+                Agendar diagnóstico gratuito
               </button>
             </motion.div>
 
