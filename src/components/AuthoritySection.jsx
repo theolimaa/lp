@@ -22,7 +22,7 @@ const Counter = ({ target, prefix = '', suffix = '', inView, decimals = 0 }) => 
 };
 
 const stats = [
-  { value: 50,  prefix: 'R$ ', suffix: 'M+', label: 'em assessoria sob gestão' },
+  { value: 50,  prefix: 'R$ ', suffix: 'M+', label: 'em assessoria' },
   { value: 10,  prefix: '',    suffix: '',    label: 'NPS — satisfação máxima dos clientes' },
   { value: 2,   prefix: '',    suffix: 'x',   label: 'Assessor Destaque — 2024 e 2025' },
 ];
