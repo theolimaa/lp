@@ -17,21 +17,10 @@ const FAQItem = ({ item, index, inView }) => {
       initial={{ opacity: 0, y: 14 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.08 }}
-      style={{ borderBottom: '1px solid var(--border-sub)' }}
+      style={{ borderBottom: '1px solid var(--border-light)' }}
     >
-      <button
-        onClick={() => setOpen(o => !o)}
-        className="w-full flex items-start justify-between gap-6 py-6 text-left"
-      >
-        <span
-          className="font-semibold leading-snug"
-          style={{
-            color: open ? 'var(--gold)' : '#FFFFFF',
-            fontFamily: "'Montserrat', sans-serif",
-            fontSize: 'clamp(0.9rem, 2vw, 1rem)',
-            transition: 'color 0.2s',
-          }}
-        >
+      <button onClick={() => setOpen(o => !o)} className="w-full flex items-start justify-between gap-6 py-6 text-left">
+        <span className="font-semibold leading-snug" style={{ color: open ? 'var(--gold)' : 'var(--text-on-light)', fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(0.9rem, 2vw, 1rem)', transition: 'color 0.2s' }}>
           {item.q}
         </span>
         <span className="flex-shrink-0 mt-0.5 w-5 h-5 flex items-center justify-center" style={{ color: 'var(--gold)' }}>
@@ -40,16 +29,8 @@ const FAQItem = ({ item, index, inView }) => {
       </button>
       <AnimatePresence initial={false}>
         {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.28, ease: 'easeInOut' }}
-            className="overflow-hidden"
-          >
-            <p className="pb-6 pr-8 leading-relaxed" style={{ color: 'var(--text-muted)', fontSize: '0.92rem' }}>
-              {item.a}
-            </p>
+          <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.28, ease: 'easeInOut' }} className="overflow-hidden">
+            <p className="pb-6 pr-8 leading-relaxed" style={{ color: 'var(--text-body-light)', fontSize: '0.92rem' }}>{item.a}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -65,26 +46,18 @@ const FAQSection = () => {
     <section
       ref={ref}
       className="py-20 lg:py-28 px-6"
-      style={{ background: 'linear-gradient(to bottom, #111111 0%, #0D0D0D 120px)' }}
+      style={{ background: 'linear-gradient(to bottom, var(--bg-light) 0%, var(--bg-light) 100%)' }}
     >
       <div className="container mx-auto max-w-4xl">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-14"
-        >
+        <motion.div initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }} className="mb-14">
           <p className="eyebrow mb-4">Dúvidas</p>
-          <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800, fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#FFFFFF', marginBottom: '0.75rem' }}>
+          <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800, fontSize: 'clamp(2rem, 4vw, 3rem)', color: 'var(--text-on-light)', marginBottom: '0.75rem' }}>
             Perguntas frequentes
           </h2>
           <span className="block w-12 h-1" style={{ backgroundColor: 'var(--gold)' }} />
         </motion.div>
-
-        <div style={{ borderTop: '1px solid var(--border-sub)' }}>
-          {faqs.map((item, i) => (
-            <FAQItem key={i} item={item} index={i} inView={inView} />
-          ))}
+        <div style={{ borderTop: '1px solid var(--border-light)' }}>
+          {faqs.map((item, i) => <FAQItem key={i} item={item} index={i} inView={inView} />)}
         </div>
       </div>
     </section>
