@@ -6,7 +6,7 @@ const Footer = () => (
     <div className="container mx-auto max-w-6xl">
       <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10">
         <div className="flex-shrink-0">
-          <img src="https://horizons-cdn.hostinger.com/c25d6b49-33f2-461d-8ced-feb874cc0e61/2736db8cd68e6856d85df3cb1fab2ef2.png" alt="Big Invest" className="h-10 w-auto mb-5" style={{ opacity: 0.75 }} />
+          <img src="/__logo-big-fundopreto.png.png" alt="Big Invest" className="h-10 w-auto mb-5" />
           <div className="flex gap-3">
             {[
               { href: 'https://www.instagram.com/theo.limaxp/', icon: Instagram, label: 'Instagram' },
