@@ -4,39 +4,56 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─── DESIGN TOKENS ────────────────────────────────── */
 :root {
-  --bg-primary:  #0D0D0D;
-  --bg-section:  #111111;
-  --bg-card:     #181818;
-  --gold:        #D4AF37;
-  --gold-light:  #F0D060;
-  --gold-dark:   #A88A20;
-  --gold-bg:     rgba(212,175,55,0.08);
-  --text-primary:#FFFFFF;
-  --text-body:   #CCCCCC;
-  --text-muted:  #888888;
-  --border:      rgba(212,175,55,0.20);
-  --border-sub:  rgba(255,255,255,0.07);
+  /* Dark sections */
+  --bg-dark:       #0D0D0D;
+  --bg-dark-2:     #111111;
+  --bg-card-dark:  #181818;
+
+  /* Light sections */
+  --bg-light:      #F7F4ED;
+  --bg-light-2:    #F0EDE5;
+  --bg-card-light: #FFFFFF;
+
+  /* Gold — único acento */
+  --gold:          #D4AF37;
+  --gold-light:    #F0D060;
+  --gold-dark:     #A88A20;
+  --gold-bg:       rgba(212,175,55,0.10);
+
+  /* Text on dark */
+  --text-on-dark:       #FFFFFF;
+  --text-body-dark:     #CCCCCC;
+  --text-muted-dark:    #888888;
+
+  /* Text on light */
+  --text-on-light:      #111109;
+  --text-body-light:    #4A4530;
+  --text-muted-light:   #8A7E5A;
+
+  /* Borders */
+  --border-gold:   rgba(212,175,55,0.22);
+  --border-dark:   rgba(255,255,255,0.07);
+  --border-light:  rgba(0,0,0,0.09);
 }
 
+/* ─── BASE ─────────────────────────────────────────── */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
 
 body {
   font-family: 'Open Sans', sans-serif;
-  background-color: var(--bg-primary);
-  color: var(--text-body);
+  background-color: var(--bg-light);
+  color: var(--text-body-light);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   line-height: 1.1;
-  color: #FFFFFF;
 }
 
 .eyebrow {
@@ -48,19 +65,97 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--gold);
 }
 
-/* Grain texture */
+/* ─── GOLD BUTTON — rounded + pulse ───────────────── */
+.btn-gold {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0 2rem;
+  min-height: 52px;
+  border-radius: 999px;          /* pill */
+  background-color: var(--gold);
+  color: #000;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  transition: brightness 0.2s, transform 0.15s;
+  overflow: visible;
+}
+
+.btn-gold:hover  { filter: brightness(1.1); }
+.btn-gold:active { transform: scale(0.96); }
+
+/* Ring pulse */
+.btn-gold::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.55);
+  animation: gold-pulse 2.2s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes gold-pulse {
+  0%   { box-shadow: 0 0 0 0   rgba(212,175,55,0.55); }
+  60%  { box-shadow: 0 0 0 14px rgba(212,175,55,0);   }
+  100% { box-shadow: 0 0 0 0   rgba(212,175,55,0);    }
+}
+
+/* ─── WHATSAPP BUTTON ──────────────────────────────── */
+.btn-whatsapp {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background-color: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.2s, filter 0.2s;
+  overflow: visible;
+}
+
+.btn-whatsapp:hover  { filter: brightness(1.1); transform: scale(1.05); }
+.btn-whatsapp:active { transform: scale(0.95); }
+
+.btn-whatsapp::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(37,211,102,0.55);
+  animation: wa-pulse 2.4s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes wa-pulse {
+  0%   { box-shadow: 0 0 0 0   rgba(37,211,102,0.55); }
+  65%  { box-shadow: 0 0 0 16px rgba(37,211,102,0);   }
+  100% { box-shadow: 0 0 0 0   rgba(37,211,102,0);    }
+}
+
+/* ─── GRAIN OVERLAY ────────────────────────────────── */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-  opacity: 0.025;
+  opacity: 0.018;
   pointer-events: none;
   z-index: 9999;
 }
 
+/* ─── MISC ─────────────────────────────────────────── */
 ::selection { background-color: var(--gold); color: #000; }
 
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg-light); }
 ::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 3px; }
