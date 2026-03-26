@@ -30,7 +30,7 @@ const ForWhomSection = () => {
     <section
       ref={ref}
       className="py-20 lg:py-28 px-6"
-      style={{ background: 'linear-gradient(to bottom, #0D0D0D 0%, #111111 120px)' }}
+      style={{ background: 'linear-gradient(to bottom, #0D0D0D 0%, var(--bg-light) 140px)' }}
     >
       <div className="container mx-auto max-w-6xl">
 
@@ -42,27 +42,24 @@ const ForWhomSection = () => {
           className="mb-14 lg:mb-16"
         >
           <p className="eyebrow mb-4">Qualificação</p>
-          <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800, fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#FFFFFF', marginBottom: '0.75rem' }}>
+          <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800, fontSize: 'clamp(2rem, 4vw, 3rem)', color: 'var(--text-on-light)', marginBottom: '0.75rem' }}>
             Essa assessoria<br />é para você?
           </h2>
           <span className="block w-12 h-1" style={{ backgroundColor: 'var(--gold)' }} />
-          <p className="mt-5 max-w-lg leading-relaxed" style={{ color: 'var(--text-muted)', fontSize: 'clamp(0.95rem, 2vw, 1.05rem)' }}>
+          <p className="mt-5 max-w-lg leading-relaxed" style={{ color: 'var(--text-muted-light)', fontSize: 'clamp(0.95rem, 2vw, 1.05rem)' }}>
             Trabalho com um perfil específico de investidor. Veja se faz sentido para o seu momento.
           </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
 
-          {/* For You — arrows, Henrique Tasca pattern */}
+          {/* For You */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p
-              className="font-bold uppercase tracking-widest mb-6"
-              style={{ color: 'var(--gold)', fontSize: '0.72rem', fontFamily: "'Montserrat', sans-serif", letterSpacing: '0.18em' }}
-            >
+            <p className="font-bold uppercase tracking-widest mb-6" style={{ color: 'var(--gold)', fontSize: '0.72rem', fontFamily: "'Montserrat', sans-serif", letterSpacing: '0.18em' }}>
               É para você se...
             </p>
             <ul>
@@ -73,19 +70,16 @@ const ForWhomSection = () => {
                   animate={inView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.45, delay: 0.15 + i * 0.07 }}
                   className="flex items-start gap-4 py-4"
-                  style={{ borderBottom: '1px solid var(--border-sub)' }}
+                  style={{ borderBottom: '1px solid var(--border-light)' }}
                 >
-                  <span
-                    className="flex-shrink-0 mt-0.5 font-bold"
-                    style={{ color: 'var(--gold)', fontFamily: "'Montserrat', sans-serif" }}
-                  >→</span>
-                  <span style={{ color: 'var(--text-body)', fontSize: '0.95rem', lineHeight: 1.6 }}>{item}</span>
+                  <span className="flex-shrink-0 mt-0.5 font-bold" style={{ color: 'var(--gold)', fontFamily: "'Montserrat', sans-serif" }}>→</span>
+                  <span style={{ color: 'var(--text-body-light)', fontSize: '0.95rem', lineHeight: 1.6 }}>{item}</span>
                 </motion.li>
               ))}
             </ul>
           </motion.div>
 
-          {/* Not For You + CTA card */}
+          {/* Not For You + CTA */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -93,10 +87,7 @@ const ForWhomSection = () => {
             className="flex flex-col gap-8"
           >
             <div>
-              <p
-                className="font-bold uppercase tracking-widest mb-6"
-                style={{ color: 'var(--text-muted)', fontSize: '0.72rem', fontFamily: "'Montserrat', sans-serif", letterSpacing: '0.18em' }}
-              >
+              <p className="font-bold uppercase tracking-widest mb-6" style={{ color: 'var(--text-muted-light)', fontSize: '0.72rem', fontFamily: "'Montserrat', sans-serif", letterSpacing: '0.18em' }}>
                 Não é para você se...
               </p>
               <ul>
@@ -107,50 +98,36 @@ const ForWhomSection = () => {
                     animate={inView ? { opacity: 1, x: 0 } : {}}
                     transition={{ duration: 0.45, delay: 0.28 + i * 0.07 }}
                     className="flex items-start gap-4 py-4"
-                    style={{ borderBottom: '1px solid var(--border-sub)' }}
+                    style={{ borderBottom: '1px solid var(--border-light)' }}
                   >
-                    <span className="flex-shrink-0 mt-0.5 font-bold" style={{ color: 'var(--text-muted)' }}>×</span>
-                    <span style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.6 }}>{item}</span>
+                    <span className="flex-shrink-0 mt-0.5 font-bold" style={{ color: 'var(--text-muted-light)' }}>×</span>
+                    <span style={{ color: 'var(--text-muted-light)', fontSize: '0.95rem', lineHeight: 1.6 }}>{item}</span>
                   </motion.li>
                 ))}
               </ul>
             </div>
 
-            {/* CTA Card */}
+            {/* CTA Card — on light bg, card is white */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.5 }}
               className="p-8 lg:p-10 mt-auto"
-              style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border)' }}
+              style={{ backgroundColor: 'var(--bg-card-light)', border: '1px solid var(--border-gold)', boxShadow: '0 4px 24px rgba(0,0,0,0.06)' }}
             >
-              <p
-                className="font-bold mb-3"
-                style={{ color: '#FFFFFF', fontFamily: "'Montserrat', sans-serif", fontSize: '1.15rem' }}
-              >
+              <p className="font-bold mb-3" style={{ color: 'var(--text-on-light)', fontFamily: "'Montserrat', sans-serif", fontSize: '1.15rem' }}>
                 Se você se identificou...
               </p>
-              <p className="leading-relaxed mb-7" style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
+              <p className="leading-relaxed mb-7" style={{ color: 'var(--text-muted-light)', fontSize: '0.9rem' }}>
                 O próximo passo é uma conversa. Gratuita, sem compromisso.
                 Você entende onde está e onde pode chegar.
               </p>
-              <button
-                onClick={handleWhatsApp}
-                className="w-full inline-flex items-center justify-center gap-3 py-4 font-bold text-black uppercase transition-all duration-200 hover:brightness-110 active:scale-95"
-                style={{
-                  backgroundColor: 'var(--gold)',
-                  fontFamily: "'Montserrat', sans-serif",
-                  fontSize: '0.78rem',
-                  letterSpacing: '0.1em',
-                  minHeight: '52px',
-                }}
-              >
+              <button onClick={handleWhatsApp} className="btn-gold w-full justify-center">
                 <MessageCircle className="w-4 h-4 flex-shrink-0" />
-                QUERO MEU DIAGNÓSTICO GRATUITO
+                Quero meu diagnóstico gratuito
               </button>
             </motion.div>
           </motion.div>
-
         </div>
       </div>
     </section>
