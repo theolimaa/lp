@@ -19,66 +19,42 @@ const PillarSection = () => {
     <section
       ref={ref}
       className="py-20 lg:py-28 px-6"
-      style={{ background: 'linear-gradient(to bottom, #111111 0%, #0D0D0D 120px)' }}
+      style={{ background: 'linear-gradient(to bottom, var(--bg-light) 0%, var(--bg-dark) 150px)' }}
     >
       <div className="container mx-auto max-w-6xl">
 
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-14 lg:mb-16 lg:flex lg:items-end lg:justify-between"
-        >
+        <motion.div initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }} className="mb-14 lg:mb-16 lg:flex lg:items-end lg:justify-between">
           <div>
             <p className="eyebrow mb-4">Metodologia</p>
-            <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800, fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#FFFFFF', marginBottom: '0.75rem' }}>
+            <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800, fontSize: 'clamp(2rem, 4vw, 3rem)', color: 'var(--text-on-dark)', marginBottom: '0.75rem' }}>
               6 pilares do<br />planejamento financeiro
             </h2>
             <span className="block w-12 h-1" style={{ backgroundColor: 'var(--gold)' }} />
           </div>
-          <p className="mt-6 lg:mt-0 lg:mb-2 max-w-xs leading-relaxed" style={{ color: 'var(--text-muted)', fontSize: '0.92rem' }}>
+          <p className="mt-6 lg:mt-0 lg:mb-2 max-w-xs leading-relaxed" style={{ color: 'var(--text-muted-dark)', fontSize: '0.92rem' }}>
             Uma visão 360° do seu patrimônio, da renda ao legado.
           </p>
         </motion.div>
 
-        {/* Grid — solid cards, no glassmorphism */}
-        <div
-          className="grid sm:grid-cols-2 lg:grid-cols-3"
-          style={{ borderTop: '1px solid var(--border-sub)', borderLeft: '1px solid var(--border-sub)' }}
-        >
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3" style={{ borderTop: '1px solid var(--border-dark)', borderLeft: '1px solid var(--border-dark)' }}>
           {pillars.map((p, i) => (
             <motion.div
               key={p.id}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-col gap-5 p-8 transition-colors duration-250 cursor-default"
-              style={{ backgroundColor: 'var(--bg-card)', borderRight: '1px solid var(--border-sub)', borderBottom: '1px solid var(--border-sub)' }}
-              onMouseEnter={e => e.currentTarget.style.backgroundColor = '#1f1d15'}
-              onMouseLeave={e => e.currentTarget.style.backgroundColor = 'var(--bg-card)'}
+              className="flex flex-col gap-5 p-8 transition-colors duration-200 cursor-default"
+              style={{ backgroundColor: 'var(--bg-card-dark)', borderRight: '1px solid var(--border-dark)', borderBottom: '1px solid var(--border-dark)' }}
+              onMouseEnter={e => e.currentTarget.style.backgroundColor = '#1e1c12'}
+              onMouseLeave={e => e.currentTarget.style.backgroundColor = 'var(--bg-card-dark)'}
             >
-              {/* Icon in gold-tinted square */}
-              <div
-                className="w-14 h-14 flex items-center justify-center"
-                style={{ backgroundColor: 'var(--gold-bg)', border: '1px solid var(--border)' }}
-              >
+              <div className="w-14 h-14 flex items-center justify-center" style={{ backgroundColor: 'var(--gold-bg)', border: '1px solid var(--border-gold)' }}>
                 <p.icon className="w-6 h-6" style={{ color: 'var(--gold)' }} strokeWidth={1.5} />
               </div>
               <div>
-                <p
-                  className="eyebrow mb-1"
-                  style={{ fontSize: '0.65rem', letterSpacing: '0.12em', marginBottom: '0.3rem' }}
-                >
-                  {String(p.id).padStart(2, '0')}
-                </p>
-                <h3
-                  className="font-bold uppercase mb-2"
-                  style={{ color: '#FFFFFF', fontFamily: "'Montserrat', sans-serif", fontSize: '0.88rem', letterSpacing: '0.06em' }}
-                >
-                  {p.title}
-                </h3>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', lineHeight: 1.6 }}>{p.desc}</p>
+                <p className="eyebrow mb-1" style={{ fontSize: '0.65rem', letterSpacing: '0.12em' }}>{String(p.id).padStart(2, '0')}</p>
+                <h3 className="font-bold uppercase mb-2" style={{ color: 'var(--text-on-dark)', fontFamily: "'Montserrat', sans-serif", fontSize: '0.88rem', letterSpacing: '0.06em' }}>{p.title}</h3>
+                <p style={{ color: 'var(--text-muted-dark)', fontSize: '0.88rem', lineHeight: 1.6 }}>{p.desc}</p>
               </div>
             </motion.div>
           ))}
