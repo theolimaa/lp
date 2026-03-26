@@ -25,13 +25,16 @@ const ConhecaBigInvest = () => {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p className="eyebrow mb-4">A estrutura por trás</p>
-            <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800, fontSize: 'clamp(2rem, 4vw, 3rem)', color: 'var(--text-on-dark)', marginBottom: '0.5rem' }}>
-              Conheça a
-            </h2>
-            <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 900, fontSize: 'clamp(2rem, 4vw, 3rem)', color: 'var(--gold)' }}>
-              Big Invest.
-            </h2>
+            <p className="eyebrow mb-6">A estrutura por trás</p>
+            {/* Logo — versão fundo escuro */}
+            <img
+              src="/__logo-big-fundopreto.png.png"
+              alt="Big Invest"
+              style={{ height: '56px', width: 'auto', marginBottom: '1.5rem' }}
+            />
+            <p className="font-bold italic" style={{ color: 'var(--gold)', fontFamily: "'Montserrat', sans-serif", fontSize: '1rem' }}>
+              Credenciada XP Investimentos
+            </p>
             <span className="block w-12 h-1 mt-4" style={{ backgroundColor: 'var(--gold)' }} />
           </motion.div>
 
