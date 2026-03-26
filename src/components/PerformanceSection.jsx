@@ -3,9 +3,9 @@ import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, TrendingUp, Calendar, Wallet } from 'lucide-react';
 
 const portfolios = [
-  { id: 1, imageUrl: "/resultado-1.jpg", yield: "R$ 234.286,00", return: "21,6%", cdiReturn: "194,08%", period: "09/03/2024 a 27/10/2024" },
-  { id: 2, imageUrl: "/resultado-2.jpg", yield: "R$ 414.543,67", return: "21,76%", cdiReturn: "200,15%", period: "05/03/2024 a 27/10/2024" },
-  { id: 3, imageUrl: "/resultado-3.jpg", yield: "R$ 860.957,72", return: "14,60%", cdiReturn: "134,30%", period: "09/03/2024 a 27/10/2024" },
+  { id: 1, imageUrl: "/resultado-1.jpg.png", yield: "R$ 234.286,00", return: "21,6%", cdiReturn: "194,08%", period: "09/03/2024 a 27/10/2024" },
+  { id: 2, imageUrl: "/resultado-2.jpg.png", yield: "R$ 414.543,67", return: "21,76%", cdiReturn: "200,15%", period: "05/03/2024 a 27/10/2024" },
+  { id: 3, imageUrl: "/resultado-3.jpg.png", yield: "R$ 860.957,72", return: "14,60%", cdiReturn: "134,30%", period: "09/03/2024 a 27/10/2024" },
 ];
 
 const PerformanceSection = () => {
