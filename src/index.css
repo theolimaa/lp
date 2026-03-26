@@ -1,105 +1,66 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Raleway:wght@300;400;500;600;700&display=swap');
- 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
 :root {
-  --bg:       #0C0B09;
-  --bg-2:     #111009;
-  --bg-card:  #181610;
-  --gold:     #4A8FE7;
-  --gold-dim: #2660CC;
-  --gold-pale:#C0D8FF;
-  --cream:    #F2EDE4;
-  --text:     #D9D4C8;
-  --muted:    #7A7570;
-  --border:   rgba(74,143,231,0.18);
-  --border-subtle: rgba(255,255,255,0.07);
+  --bg-primary:  #0D0D0D;
+  --bg-section:  #111111;
+  --bg-card:     #181818;
+  --gold:        #D4AF37;
+  --gold-light:  #F0D060;
+  --gold-dark:   #A88A20;
+  --gold-bg:     rgba(212,175,55,0.08);
+  --text-primary:#FFFFFF;
+  --text-body:   #CCCCCC;
+  --text-muted:  #888888;
+  --border:      rgba(212,175,55,0.20);
+  --border-sub:  rgba(255,255,255,0.07);
 }
- 
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
- 
+
 html { scroll-behavior: smooth; }
- 
+
 body {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 400;
-  background-color: var(--bg);
-  color: var(--text);
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-body);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
- 
+
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-weight: 300;
-  line-height: 1.15;
-  letter-spacing: 0.01em;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #FFFFFF;
 }
- 
-/* Grain overlay for luxury feel */
+
+.eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* Grain texture */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.025;
   pointer-events: none;
   z-index: 9999;
 }
- 
-/* Selection */
-::selection { background-color: var(--gold); color: #fff; }
- 
-/* Scrollbar */
+
+::selection { background-color: var(--gold); color: #000; }
+
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 3px; }
- 
-/* Gold rule divider */
-.rule-gold {
-  display: block;
-  width: 40px;
-  height: 2px;
-  background: var(--gold);
-}
- 
-/* ─── CTA BUTTON — responsive pill ──────────────────────────────── */
-.btn-cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  white-space: nowrap;
-  border-radius: 9999px;
-  background-color: var(--gold);
-  color: #fff;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  font-size: 0.7rem;
-  padding: 0.75rem 1.25rem;
-  transition: filter 0.25s ease, box-shadow 0.25s ease;
-}
- 
-.btn-cta:hover {
-  filter: brightness(1.1);
-  box-shadow: 0 4px 20px rgba(201, 168, 76, 0.25);
-}
- 
-@media (min-width: 640px) {
-  .btn-cta {
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    padding: 1rem 2rem;
-  }
-}
- 
-/* Full-width variant */
-.btn-cta-full {
-  width: 100%;
-}
- 
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 3px; }
