@@ -2,14 +2,14 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 
 import HeroSection from '@/components/HeroSection';
+import TickerStrip from '@/components/TickerStrip';
 import AuthoritySection from '@/components/AuthoritySection';
-import ForWhomSection from '@/components/ForWhomSection';
 import AboutSection from '@/components/AboutSection';
+import ForWhomSection from '@/components/ForWhomSection';
 import ConhecaBigInvest from '@/components/ConhecaBigInvest';
 import PerformanceSection from '@/components/PerformanceSection';
 import PillarSection from '@/components/PillarSection';
 import HowItWorks from '@/components/HowItWorks';
-
 import FAQSection from '@/components/FAQSection';
 import CallToAction from '@/components/CallToAction';
 import Footer from '@/components/Footer';
@@ -24,34 +24,37 @@ const HomePage = () => {
       </Helmet>
 
       <main className="flex-1 w-full">
-        {/* 1. Gancho imediato */}
+        {/* 1. Hero */}
         <HeroSection />
 
-        {/* 2. Credibilidade com números — logo após o Hero */}
+        {/* 2. Ticker — âncora de autoridade imediata */}
+        <TickerStrip />
+
+        {/* 3. Números */}
         <AuthoritySection />
 
-        {/* 3. Qualificação — "Isso é pra mim?" */}
-        <ForWhomSection />
-
-        {/* 4. Humanização — quem é o Theo */}
+        {/* 4. Quem é o Theo */}
         <AboutSection />
 
-        {/* 5. A estrutura por trás — Big Invest */}
+        {/* 5. Qualificação */}
+        <ForWhomSection />
+
+        {/* 6. Big Invest */}
         <ConhecaBigInvest />
 
-        {/* 6. Prova social com resultados reais */}
+        {/* 7. Resultados reais */}
         <PerformanceSection />
 
-        {/* 7. Metodologia — os 6 pilares */}
+        {/* 8. Os 6 pilares */}
         <PillarSection />
 
-        {/* 8. Processo — como funciona na prática */}
+        {/* 9. Como funciona */}
         <HowItWorks />
 
-        {/* 9. Dúvidas frequentes */}
+        {/* 10. FAQ */}
         <FAQSection />
 
-        {/* 11. CTA final forte antes do rodapé */}
+        {/* 11. CTA final */}
         <CallToAction />
       </main>
 
