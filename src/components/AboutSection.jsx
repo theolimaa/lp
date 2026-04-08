@@ -36,7 +36,7 @@ const AboutSection = () => {
             <div className="absolute -bottom-4 -right-4 w-full h-full" style={{ border: '1px solid var(--border-gold)', zIndex: 0 }} />
             <div className="relative z-10 overflow-hidden" style={{ aspectRatio: '4/5' }}>
               <img
-                src="https://horizons-cdn.hostinger.com/c25d6b49-33f2-461d-8ced-feb874cc0e61/b9ad289ca37819944174cdd56cf21456.png"
+                src="/segunda.jpeg"
                 alt="Theo Lima — Assessor XP"
                 className="w-full h-full object-cover object-top"
                 style={{
