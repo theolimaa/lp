@@ -16,7 +16,7 @@ const HeroSection = () => {
       {/* Photo */}
       <div className="absolute inset-0 lg:left-[38%]">
         <img
-          src="https://horizons-cdn.hostinger.com/c25d6b49-33f2-461d-8ced-feb874cc0e61/928c124bad23db48363483874e4efd05.png"
+          src="/capa.jpeg"
           alt="Theo Lima"
           className="w-full h-full object-cover"
           style={{ objectPosition: 'center 15%' }}
