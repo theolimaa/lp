@@ -30,7 +30,7 @@ const ForWhomSection = () => {
     <section
       ref={ref}
       className="py-20 lg:py-28 px-6"
-      style={{ background: 'linear-gradient(to bottom, #0D0D0D 0%, var(--bg-light) 140px)' }}
+      style={{ background: 'linear-gradient(to bottom, var(--bg-dark) 0%, var(--bg-light) 140px)' }}
     >
       <div className="container mx-auto max-w-6xl">
 

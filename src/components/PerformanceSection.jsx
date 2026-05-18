@@ -89,7 +89,7 @@ const PerformanceSection = () => {
           {/* Dots */}
           <div className="flex justify-center gap-2 mt-6">
             {portfolios.map((_, i) => (
-              <button key={i} onClick={() => setCurrent(i)} className="transition-all duration-300" style={{ height: '3px', width: i === current ? '28px' : '8px', backgroundColor: i === current ? 'var(--gold)' : 'var(--border-light)', borderRadius: '2px' }} aria-label={`Slide ${i + 1}`} />
+              <button key={i} onClick={() => setCurrent(i)} className="transition-all duration-300" style={{ height: '3px', width: i === current ? '28px' : '8px', backgroundColor: i === current ? 'var(--gold)' : 'rgba(255,255,255,0.2)', borderRadius: '2px' }} aria-label={`Slide ${i + 1}`} />
             ))}
           </div>
 

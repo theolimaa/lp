@@ -21,7 +21,7 @@ const AboutSection = () => {
     <section
       ref={ref}
       className="py-20 lg:py-28 px-6 overflow-hidden"
-      style={{ background: 'linear-gradient(to bottom, var(--bg-light) 0%, #0D0D0D 150px)' }}
+      style={{ background: 'linear-gradient(to bottom, var(--bg-light) 0%, var(--bg-dark) 150px)' }}
     >
       <div className="container mx-auto max-w-6xl">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -81,7 +81,7 @@ const AboutSection = () => {
               <p>
                 Me chamo Theo Lima, sócio e assessor na{' '}
                 <strong style={{ color: 'var(--text-on-dark)' }}>Big Invest | XP Inc.</strong>{' '}
-                Assessoro mais de R$ 50 milhões, com clientes no Brasil e no exterior — Portugal, Austrália, Malta, Estados Unidos e outros.
+                Assessoro mais de R$ 60 milhões, com clientes no Brasil e no exterior — Portugal, Austrália, Malta, Estados Unidos e outros.
               </p>
               <p>
                 Minha missão é conhecer sua história e onde você quer chegar. Com meu time, entrego um planejamento financeiro 360°, olhando para cada área da sua vida que precisa de cuidado e gestão.

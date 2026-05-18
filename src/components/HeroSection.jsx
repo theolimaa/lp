@@ -24,19 +24,19 @@ const HeroSection = () => {
         {/* Mobile: fade bottom only */}
         <div
           className="absolute inset-0 lg:hidden"
-          style={{ background: 'linear-gradient(to top, #0D0D0D 0%, rgba(13,13,13,0.55) 45%, rgba(13,13,13,0.05) 100%)' }}
+          style={{ background: 'linear-gradient(to top, var(--bg-dark) 0%, rgba(13,13,13,0.55) 45%, rgba(13,13,13,0.05) 100%)' }}
         />
         {/* Desktop: subtle left fade, almost transparent on right */}
         <div
           className="absolute inset-0 hidden lg:block"
-          style={{ background: 'linear-gradient(to right, #0D0D0D 0%, rgba(13,13,13,0.4) 38%, rgba(13,13,13,0.0) 62%)' }}
+          style={{ background: 'linear-gradient(to right, var(--bg-dark) 0%, rgba(13,13,13,0.4) 38%, rgba(13,13,13,0.0) 62%)' }}
         />
       </div>
 
       {/* Gradient into next section (light) */}
       <div
         className="absolute bottom-0 left-0 right-0 h-28 pointer-events-none"
-        style={{ background: 'linear-gradient(to bottom, transparent, #0D0D0D)' }}
+        style={{ background: 'linear-gradient(to bottom, transparent, var(--bg-dark))' }}
       />
 
       {/* Content */}
@@ -86,7 +86,7 @@ const HeroSection = () => {
             >
               Planejamento financeiro, patrimonial e sucessório personalizado.
               Gerindo{' '}
-              <strong style={{ color: '#FFFFFF' }}>+R$ 50 milhões</strong>
+              <strong style={{ color: '#FFFFFF' }}>+R$ 60 milhões</strong>
               {' '}na XP Investimentos com foco em transparência e resultado.
             </motion.p>
 

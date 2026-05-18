@@ -22,7 +22,7 @@ const Counter = ({ target, prefix = '', suffix = '', inView, decimals = 0 }) => 
 };
 
 const stats = [
-  { value: 50,  prefix: 'R$ ', suffix: 'M+', label: 'em assessoria' },
+  { value: 60,  prefix: 'R$ ', suffix: 'M+', label: 'em assessoria' },
   { value: 10,  prefix: '',    suffix: '',    label: 'NPS — satisfação máxima dos clientes' },
   { value: 2,   prefix: '',    suffix: 'x',   label: 'Assessor Destaque — 2024 e 2025' },
 ];
@@ -35,7 +35,7 @@ const AuthoritySection = () => {
     <section
       ref={ref}
       className="py-14 lg:py-16 px-6"
-      style={{ background: 'linear-gradient(to bottom, #0D0D0D 0%, var(--bg-light) 130px)' }}
+      style={{ background: 'linear-gradient(to bottom, var(--bg-dark) 0%, var(--bg-light) 130px)' }}
     >
       <div className="container mx-auto max-w-5xl">
         <div

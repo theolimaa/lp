@@ -18,7 +18,7 @@ const CallToAction = () => {
       style={{ background: 'linear-gradient(to bottom, var(--bg-light) 0%, var(--bg-dark) 160px)' }}
     >
       {/* Warm gold ambient */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] pointer-events-none" style={{ background: 'radial-gradient(circle at top right, rgba(212,175,55,0.07) 0%, transparent 65%)' }} />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] pointer-events-none" style={{ background: 'radial-gradient(circle at top right, rgba(201,168,76,0.07) 0%, transparent 65%)' }} />
 
       <div className="container mx-auto max-w-5xl relative z-10">
         <div className="lg:grid lg:grid-cols-2 lg:gap-20 lg:items-center">
