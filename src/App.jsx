@@ -19,7 +19,7 @@ function App() {
     <BrowserRouter>
       <AuthProvider>
         <ModalProvider>
-          <div className="min-h-screen bg-black text-white scroll-smooth overflow-x-hidden">
+          <div className="min-h-screen scroll-smooth overflow-x-hidden">
             <Routes>
               {/* Public Routes - Landing Page */}
               <Route path="/" element={<HomePage />} />
