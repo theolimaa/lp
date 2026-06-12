@@ -19,114 +19,69 @@ const notForYou = [
 
 const ForWhomSection = () => {
   const ref = React.useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-80px' });
+  const inView = useInView(ref, { once: true, margin: '-60px' });
 
   const handleWhatsApp = () => {
-    const message = encodeURIComponent('Olá, Theo. Gostaria de agendar um diagnóstico de eficiência patrimonial.');
-    window.open(`https://api.whatsapp.com/message/UZZHBP7KOC5AJ1?text=${message}`, '_blank');
+    const msg = encodeURIComponent('Olá, Theo. Gostaria de agendar um diagnóstico de eficiência patrimonial.');
+    window.open(`https://api.whatsapp.com/message/UZZHBP7KOC5AJ1?text=${msg}`, '_blank');
   };
 
   return (
-    <section
-      ref={ref}
-      className="py-20 lg:py-28 px-6"
-      style={{ background: 'linear-gradient(to bottom, var(--bg-dark) 0%, var(--bg-light) 140px)' }}
-    >
-      <div className="container mx-auto max-w-6xl">
-
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-14 lg:mb-16"
-        >
-          <p className="eyebrow mb-4">Qualificação</p>
-          <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800, fontSize: 'clamp(2rem, 4vw, 3rem)', color: 'var(--text-on-light)', marginBottom: '0.75rem' }}>
+    <section ref={ref} className="px-5 lg:px-16 py-16 lg:py-24" style={{ backgroundColor: 'var(--paper-2)' }}>
+      <div className="max-w-5xl mx-auto">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} className="mb-12">
+          <p className="label mb-4">Qualificação</p>
+          <h2 className="display" style={{ fontSize: 'clamp(2.4rem, 8vw, 4rem)' }}>
             Essa assessoria<br />é para você?
           </h2>
-          <span className="block w-12 h-1" style={{ backgroundColor: 'var(--gold)' }} />
-          <p className="mt-5 max-w-lg leading-relaxed" style={{ color: 'var(--text-muted-light)', fontSize: 'clamp(0.95rem, 2vw, 1.05rem)' }}>
-            Trabalho com um perfil específico de investidor. Veja se faz sentido para o seu momento.
-          </p>
+          <span className="gold-rule mt-5 block" />
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-
-          {/* For You */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <p className="font-bold uppercase tracking-widest mb-6" style={{ color: 'var(--gold)', fontSize: '0.72rem', fontFamily: "'Montserrat', sans-serif", letterSpacing: '0.18em' }}>
-              É para você se...
-            </p>
+        <div className="lg:grid lg:grid-cols-2 lg:gap-16">
+          {/* For you */}
+          <motion.div initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.1 }}>
+            <p className="label mb-5" style={{ color: 'var(--gold)' }}>É para você se…</p>
             <ul>
               {forYou.map((item, i) => (
                 <motion.li
                   key={i}
-                  initial={{ opacity: 0, x: -12 }}
+                  initial={{ opacity: 0, x: -8 }}
                   animate={inView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.45, delay: 0.15 + i * 0.07 }}
-                  className="flex items-start gap-4 py-4"
-                  style={{ borderBottom: '1px solid var(--border-light)' }}
+                  transition={{ duration: 0.4, delay: 0.15 + i * 0.06 }}
+                  className="flex items-start gap-4 py-3.5"
+                  style={{ borderBottom: '1px solid var(--rule)' }}
                 >
-                  <span className="flex-shrink-0 mt-0.5 font-bold" style={{ color: 'var(--gold)', fontFamily: "'Montserrat', sans-serif" }}>→</span>
-                  <span style={{ color: 'var(--text-body-light)', fontSize: '0.95rem', lineHeight: 1.6 }}>{item}</span>
+                  <span className="stat-num flex-shrink-0 mt-0.5" style={{ fontSize: '1rem', color: 'var(--gold)', lineHeight: 1 }}>—</span>
+                  <span style={{ color: 'var(--ink-warm)', fontSize: '0.95rem', lineHeight: 1.6 }}>{item}</span>
                 </motion.li>
               ))}
             </ul>
           </motion.div>
 
-          {/* Not For You + CTA */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col gap-8"
-          >
+          {/* Not for you + CTA */}
+          <motion.div initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.2 }} className="mt-10 lg:mt-0 flex flex-col gap-10">
             <div>
-              <p className="font-bold uppercase tracking-widest mb-6" style={{ color: 'var(--text-muted-light)', fontSize: '0.72rem', fontFamily: "'Montserrat', sans-serif", letterSpacing: '0.18em' }}>
-                Não é para você se...
-              </p>
+              <p className="label mb-5" style={{ color: 'var(--ink-muted)' }}>Não é para você se…</p>
               <ul>
                 {notForYou.map((item, i) => (
-                  <motion.li
-                    key={i}
-                    initial={{ opacity: 0, x: 12 }}
-                    animate={inView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ duration: 0.45, delay: 0.28 + i * 0.07 }}
-                    className="flex items-start gap-4 py-4"
-                    style={{ borderBottom: '1px solid var(--border-light)' }}
-                  >
-                    <span className="flex-shrink-0 mt-0.5 font-bold" style={{ color: 'var(--text-muted-light)' }}>×</span>
-                    <span style={{ color: 'var(--text-muted-light)', fontSize: '0.95rem', lineHeight: 1.6 }}>{item}</span>
-                  </motion.li>
+                  <li key={i} className="flex items-start gap-4 py-3.5" style={{ borderBottom: '1px solid var(--rule)' }}>
+                    <span style={{ color: 'var(--ink-muted)', fontSize: '0.95rem', lineHeight: 1.6 }}>{item}</span>
+                  </li>
                 ))}
               </ul>
             </div>
 
-            {/* CTA Card — on light bg, card is white */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="p-8 lg:p-10 mt-auto"
-              style={{ backgroundColor: 'var(--bg-card-light)', border: '1px solid var(--border-gold)', boxShadow: '0 4px 24px rgba(0,0,0,0.06)' }}
-            >
-              <p className="font-bold mb-3" style={{ color: 'var(--text-on-light)', fontFamily: "'Montserrat', sans-serif", fontSize: '1.15rem' }}>
-                Se você se identificou...
-              </p>
-              <p className="leading-relaxed mb-7" style={{ color: 'var(--text-muted-light)', fontSize: '0.9rem' }}>
+            {/* CTA box */}
+            <div className="p-7 lg:p-8" style={{ backgroundColor: 'var(--surface)', border: '1px solid rgba(201,168,76,0.25)' }}>
+              <p className="display mb-3" style={{ fontSize: '1.6rem' }}>Se você se identificou…</p>
+              <p className="mb-6" style={{ color: 'var(--ink-muted)', fontSize: '0.9rem', lineHeight: 1.7 }}>
                 O próximo passo é uma conversa. Gratuita, sem compromisso.
-                Você entende onde está e onde pode chegar.
               </p>
-              <button onClick={handleWhatsApp} className="btn-gold w-full justify-center">
-                <MessageCircle className="w-4 h-4 flex-shrink-0" />
+              <button onClick={handleWhatsApp} className="btn-primary w-full justify-center">
+                <MessageCircle className="w-4 h-4" />
                 Quero meu diagnóstico gratuito
               </button>
-            </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>
