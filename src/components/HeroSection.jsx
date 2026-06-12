@@ -1,109 +1,111 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
 
-const HeroSection = () => {
+const HeroSection = ({ onVisibilityChange }) => {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    if (!onVisibilityChange) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => onVisibilityChange(entry.isIntersecting),
+      { threshold: 0.1 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [onVisibilityChange]);
+
   const handleWhatsApp = () => {
     const message = encodeURIComponent("Olá, Theo. Gostaria de agendar um diagnóstico de eficiência patrimonial.");
     window.open(`https://api.whatsapp.com/message/UZZHBP7KOC5AJ1?text=${message}`, '_blank');
   };
 
   return (
-    <section
-      className="relative min-h-screen flex items-end lg:items-center overflow-hidden"
-      style={{ backgroundColor: 'var(--bg-dark)' }}
-    >
-      {/* Photo */}
-      <div className="absolute inset-0 lg:left-[38%]">
+    <section ref={ref} className="relative min-h-screen flex flex-col" style={{ backgroundColor: 'var(--dark)' }}>
+
+      {/* Photo — top portion, full width */}
+      <div className="relative w-full" style={{ height: '62vh', minHeight: '340px' }}>
         <img
           src="/capa.jpeg"
           alt="Theo Lima"
           className="w-full h-full object-cover"
-          style={{ objectPosition: 'center 15%' }}
+          style={{ objectPosition: 'center 18%' }}
         />
-        {/* Mobile: fade bottom only */}
-        <div
-          className="absolute inset-0 lg:hidden"
-          style={{ background: 'linear-gradient(to top, var(--bg-dark) 0%, rgba(13,13,13,0.55) 45%, rgba(13,13,13,0.05) 100%)' }}
-        />
-        {/* Desktop: subtle left fade, almost transparent on right */}
-        <div
-          className="absolute inset-0 hidden lg:block"
-          style={{ background: 'linear-gradient(to right, var(--bg-dark) 0%, rgba(13,13,13,0.4) 38%, rgba(13,13,13,0.0) 62%)' }}
-        />
+        {/* Fade to dark at bottom */}
+        <div className="absolute inset-0" style={{
+          background: 'linear-gradient(to bottom, rgba(20,18,16,0.15) 0%, rgba(20,18,16,0) 40%, rgba(20,18,16,0.85) 100%)'
+        }} />
+        {/* Photo caption — floating bottom left */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="absolute bottom-5 left-5 right-5 flex items-center gap-2"
+        >
+          <span className="w-4 h-px flex-shrink-0" style={{ backgroundColor: 'var(--gold)' }} />
+          <span className="label" style={{ color: 'rgba(201,168,76,0.9)', fontSize: '0.6rem' }}>
+            Assessor Destaque 2024 · 2025 · Big Invest | XP Investimentos
+          </span>
+        </motion.div>
       </div>
 
-      {/* Gradient into next section (light) */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-28 pointer-events-none"
-        style={{ background: 'linear-gradient(to bottom, transparent, var(--bg-dark))' }}
-      />
+      {/* Text content — below photo on mobile */}
+      <div className="flex-1 flex flex-col justify-center px-5 pt-8 pb-28 lg:pb-16 lg:px-16 max-w-2xl mx-auto w-full lg:max-w-none lg:mx-0">
 
-      {/* Content */}
-      <div className="relative z-10 w-full">
-        <div className="container mx-auto px-6 sm:px-10 lg:px-16 max-w-7xl">
-          <div className="lg:max-w-[50%] pb-14 pt-40 lg:py-36">
+        {/* Eyebrow */}
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="label mb-5"
+          style={{ color: 'var(--gold)' }}
+        >
+          Planejamento patrimonial · Successório · Financeiro
+        </motion.p>
 
-            {/* Eyebrow */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="flex items-center gap-3 mb-8"
-            >
-              <span className="block w-8 h-px flex-shrink-0" style={{ backgroundColor: 'var(--gold)' }} />
-              <span className="eyebrow">Assessor Destaque 2024 · 2025 · Big Invest | XP</span>
-              <span className="block w-8 h-px flex-shrink-0" style={{ backgroundColor: 'var(--gold)' }} />
-            </motion.div>
+        {/* Headline — Cormorant italic, signature element */}
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          className="display mb-6"
+          style={{
+            fontSize: 'clamp(3rem, 12vw, 6rem)',
+            color: '#FFFFFF',
+            fontWeight: 300,
+          }}
+        >
+          A assessoria que<br />
+          o seu{' '}
+          <em style={{ color: 'var(--gold)', fontStyle: 'italic' }}>futuro</em>
+          {' '}precisa.
+        </motion.h1>
 
-            {/* Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              style={{
-                fontFamily: "'Montserrat', sans-serif",
-                fontWeight: 900,
-                fontSize: 'clamp(2.6rem, 6.5vw, 4.8rem)',
-                lineHeight: 1.0,
-                color: '#FFFFFF',
-                marginBottom: '1.5rem',
-              }}
-            >
-              A assessoria que<br />
-              o seu{' '}
-              <span style={{ color: 'var(--gold)' }}>futuro</span>
-              <br />precisa.
-            </motion.h1>
+        {/* Body */}
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.45 }}
+          className="leading-relaxed mb-9"
+          style={{ color: 'rgba(249,248,246,0.65)', fontSize: 'clamp(0.95rem, 3.5vw, 1.05rem)', maxWidth: '480px' }}
+        >
+          Gerindo <strong style={{ color: 'rgba(249,248,246,0.9)' }}>+R$ 60 milhões</strong> na
+          XP Investimentos com foco em transparência e resultado.
+        </motion.p>
 
-            {/* Body */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="leading-relaxed mb-10 max-w-md"
-              style={{ color: 'var(--text-body-dark)', fontSize: 'clamp(0.95rem, 2vw, 1.1rem)' }}
-            >
-              Planejamento financeiro, patrimonial e sucessório personalizado.
-              Gerindo{' '}
-              <strong style={{ color: '#FFFFFF' }}>+R$ 60 milhões</strong>
-              {' '}na XP Investimentos com foco em transparência e resultado.
-            </motion.p>
+        {/* CTA — only visible on desktop; mobile uses sticky bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.58 }}
+          className="hidden lg:flex items-center gap-4"
+        >
+          <button onClick={handleWhatsApp} className="btn-primary" style={{ backgroundColor: 'var(--gold)', color: '#000' }}>
+            <MessageCircle className="w-4 h-4" />
+            Agendar diagnóstico gratuito
+          </button>
+        </motion.div>
 
-            {/* CTA */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.32 }}
-            >
-              <button onClick={handleWhatsApp} className="btn-gold">
-                <MessageCircle className="w-4 h-4 flex-shrink-0" />
-                Agendar diagnóstico gratuito
-              </button>
-            </motion.div>
-
-          </div>
-        </div>
       </div>
     </section>
   );
