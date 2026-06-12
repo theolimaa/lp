@@ -10,27 +10,23 @@ const faqs = [
   { q: 'Investir é seguro?', a: 'Utilizamos a plataforma da XP Investimentos. Os riscos variam conforme o ativo, por isso a diversificação da carteira é fundamental. Tudo é montado respeitando seu perfil de investidor, com total transparência na escolha de cada produto.' },
 ];
 
-const FAQItem = ({ item, index, inView }) => {
+const FAQItem = ({ item, i, inView }) => {
   const [open, setOpen] = useState(false);
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 14 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5, delay: index * 0.08 }}
-      style={{ borderBottom: '1px solid var(--border-light)' }}
-    >
-      <button onClick={() => setOpen(o => !o)} className="w-full flex items-start justify-between gap-6 py-6 text-left">
-        <span className="font-semibold leading-snug" style={{ color: open ? 'var(--gold)' : 'var(--text-on-light)', fontFamily: "'Montserrat', sans-serif", fontSize: 'clamp(0.9rem, 2vw, 1rem)', transition: 'color 0.2s' }}>
+    <motion.div initial={{ opacity: 0, y: 12 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.45, delay: i * 0.07 }}
+      style={{ borderBottom: '1px solid var(--rule)' }}>
+      <button onClick={() => setOpen(o => !o)} className="w-full flex items-start justify-between gap-6 py-5 text-left">
+        <span style={{ color: open ? 'var(--gold)' : 'var(--ink)', fontWeight: 500, fontSize: 'clamp(0.92rem, 3.5vw, 1rem)', lineHeight: 1.5, transition: 'color 0.2s' }}>
           {item.q}
         </span>
-        <span className="flex-shrink-0 mt-0.5 w-5 h-5 flex items-center justify-center" style={{ color: 'var(--gold)' }}>
+        <span className="flex-shrink-0 mt-0.5" style={{ color: 'var(--gold)' }}>
           {open ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
         </span>
       </button>
       <AnimatePresence initial={false}>
         {open && (
-          <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.28, ease: 'easeInOut' }} className="overflow-hidden">
-            <p className="pb-6 pr-8 leading-relaxed" style={{ color: 'var(--text-body-light)', fontSize: '0.92rem' }}>{item.a}</p>
+          <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.25 }} className="overflow-hidden">
+            <p className="pb-5 pr-6" style={{ color: 'var(--ink-muted)', fontSize: '0.92rem', lineHeight: 1.75 }}>{item.a}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -40,24 +36,19 @@ const FAQItem = ({ item, index, inView }) => {
 
 const FAQSection = () => {
   const ref = React.useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-80px' });
+  const inView = useInView(ref, { once: true, margin: '-60px' });
 
   return (
-    <section
-      ref={ref}
-      className="py-20 lg:py-28 px-6"
-      style={{ background: 'linear-gradient(to bottom, var(--bg-light) 0%, var(--bg-light) 100%)' }}
-    >
-      <div className="container mx-auto max-w-4xl">
-        <motion.div initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }} className="mb-14">
-          <p className="eyebrow mb-4">Dúvidas</p>
-          <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800, fontSize: 'clamp(2rem, 4vw, 3rem)', color: 'var(--text-on-light)', marginBottom: '0.75rem' }}>
-            Perguntas frequentes
-          </h2>
-          <span className="block w-12 h-1" style={{ backgroundColor: 'var(--gold)' }} />
+    <section ref={ref} className="px-5 lg:px-16 py-16 lg:py-24" style={{ backgroundColor: 'var(--paper)' }}>
+      <hr className="section-rule mb-14" />
+      <div className="max-w-3xl mx-auto">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} className="mb-10">
+          <p className="label mb-4">Dúvidas</p>
+          <h2 className="display" style={{ fontSize: 'clamp(2.4rem, 8vw, 4rem)' }}>Perguntas<br />frequentes</h2>
+          <span className="gold-rule mt-5 block" />
         </motion.div>
-        <div style={{ borderTop: '1px solid var(--border-light)' }}>
-          {faqs.map((item, i) => <FAQItem key={i} item={item} index={i} inView={inView} />)}
+        <div style={{ borderTop: '1px solid var(--rule)' }}>
+          {faqs.map((item, i) => <FAQItem key={i} item={item} i={i} inView={inView} />)}
         </div>
       </div>
     </section>
